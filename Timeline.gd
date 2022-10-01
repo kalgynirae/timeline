@@ -42,16 +42,19 @@ func generate(rows):
 	clear()
 	var height = rows * rowheight
 	for i in range(11):
+		var line
 		if i == 0 or i == 10:
-			$verticals.add_child(vertical(i*colwidth, height, 8))
+			line = vertical(i*colwidth, height, 8)
 		else:
-			$verticals.add_child(vertical(i*colwidth, height, 4))
+			line = vertical(i*colwidth, height, 4)
+		line.name = "vertical" + i as String
+		$verticals.add_child(line)
 		$numbers.add_child(number(i*colwidth, i as String))
 	for i in range(10):
 		$subverticals.add_child(vertical(i*colwidth + colwidth / 2, height, 1))
 	for i in range(rows+1):
 		$horizontals.add_child(horizontal(-i*rowheight, 10*colwidth, 2))
-	
+
 func vertical(x, height, width):
 	var line = Line2D.new()
 	line.points = [Vector2(x, 1), Vector2(x, -(height+1))]
@@ -78,6 +81,15 @@ func number(x, text):
 
 func spawn_line(start_time, color):
 	var line = line_scene.instance()
-	line.modulate = color
+	line.color = color
 	line.start_time = start_time
+	line.connect("step_hit", self, "_on_step_hit")
 	add_child(line)
+
+func _on_step_hit(step, _color):
+	print("step hit: ", step)
+	var line = get_node("verticals/vertical" + step as String)
+	var orig = line.width
+	line.width = 20
+	yield(get_tree().create_timer(0.1), "timeout")
+	line.width = orig
