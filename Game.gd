@@ -5,8 +5,6 @@ const TIME_PADDING = 250
 const START_X = 150
 const WIDTH = 1000
 
-var line_scene = preload("res://Line.tscn")
-
 var color = 0
 var start_time = 0
 
@@ -21,8 +19,5 @@ func _process(_delta):
 
 func start():
 	start_time = Time.get_ticks_msec() + TIME_PADDING
-	var line = line_scene.instance()
-	line.modulate = COLORS[color]
+	$Timeline.spawn_line(start_time, COLORS[color])
 	color = (color + 1) % COLORS.size()
-	line.start_time = start_time
-	add_child(line)

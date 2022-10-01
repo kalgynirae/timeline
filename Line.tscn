@@ -217,24 +217,24 @@ tracks/2/keys = {
 script = ExtResource( 1 )
 
 [node name="VLine" type="Line2D" parent="."]
-position = Vector2( 13, 541 )
+position = Vector2( 13, 291 )
 points = PoolVector2Array( -13, -541, -13, -291 )
 width = 0.0
 default_color = Color( 1, 1, 1, 0.431373 )
 
 [node name="Top" type="Polygon2D" parent="."]
 modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, -250 )
 color = Color( 1, 1, 1, 0.792157 )
 polygon = PoolVector2Array( -10, 0, 0, 10, 10, 0 )
 
 [node name="Bottom" type="Polygon2D" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 0, 250 )
 color = Color( 1, 1, 1, 0.792157 )
 polygon = PoolVector2Array( -10, 0, 0, -10, 10, 0 )
 
 [node name="Particles" type="Particles2D" parent="."]
-position = Vector2( 0, 120 )
+position = Vector2( 0, -130 )
 emitting = false
 amount = 30
 lifetime = 2.0

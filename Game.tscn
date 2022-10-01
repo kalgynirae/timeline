@@ -6,6 +6,12 @@
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="CurrentLevel" type="Node" parent="."]
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 0, -180 )
+color = Color( 0.156863, 0.156863, 0.156863, 1 )
+polygon = PoolVector2Array( 0, 580, 0, 900, 1280, 900, 1280, 580 )
 
 [node name="Timeline" parent="." instance=ExtResource( 1 )]
+position = Vector2( 70, 680 )
+
+[node name="CurrentLevel" type="Node" parent="."]
