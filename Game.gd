@@ -1,23 +1,35 @@
 extends Node2D
 
-const COLORS = [Color("00ff00"), Color("00ffff"), Color("ffff00")]
-const TIME_PADDING = 250
-const START_X = 150
-const WIDTH = 1000
+var _popup_shown = false
 
-var color = 0
-var start_time = 0
+var Toast = preload("res://Toast.tscn")
 
-func _ready():
-	yield(get_tree().create_timer(0.5, false), "timeout")
-	start()
+func _input(event):
+	if event is InputEventKey and event.pressed and event.scancode == KEY_ENTER:
+		if _popup_shown:
+			$InputPanel.hide()
+			_popup_shown = false
+		else:
+			var coro = show_popup("Level name")
+			var name = yield(coro, "completed")
+			load_level(name)
 
-func _process(_delta):
-	var elapsed = Time.get_ticks_msec() - start_time
-	if elapsed > 4_000 - TIME_PADDING:
-		start()
+func show_popup(label):
+	_popup_shown = true
+	$InputPanel/HBoxContainer/Label.text = label + ": "
+	$InputPanel.popup_centered()
+	yield($InputPanel, "popup_hide")
+	return $InputPanel/HBoxContainer/LineEdit.text
 
-func start():
-	start_time = Time.get_ticks_msec() + TIME_PADDING
-	$Timeline.spawn_line(start_time, COLORS[color])
-	color = (color + 1) % COLORS.size()
+func load_level(name):
+	var new_level = load("res://levels/" + name + ".tscn")
+	if new_level == null:
+		var toast = Toast.instance()
+		toast.text = "Unknown level: " + name
+		add_child(toast)
+		return
+	for node in $CurrentLevel.get_children():
+		$CurrentLevel.remove_child(node)
+		node.queue_free()
+	var node = new_level.instance()
+	$CurrentLevel.add_child(node)

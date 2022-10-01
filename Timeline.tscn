@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Timeline.gd" type="Script" id=2]
 
-[node name="Node2D" type="Node2D"]
+[node name="Timeline" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="numbers" type="Node2D" parent="."]
@@ -11,70 +11,60 @@ script = ExtResource( 2 )
 modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 
 [node name="sv0" type="Line2D" parent="subverticals"]
-visible = false
 position = Vector2( -150, -851 )
 points = PoolVector2Array( 200, 600, 200, 850 )
 width = 1.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="sv1" type="Line2D" parent="subverticals"]
-visible = false
 position = Vector2( -50, -851 )
 points = PoolVector2Array( 200, 600, 200, 850 )
 width = 1.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="sv2" type="Line2D" parent="subverticals"]
-visible = false
 position = Vector2( 50, -851 )
 points = PoolVector2Array( 200, 600, 200, 850 )
 width = 1.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="sv3" type="Line2D" parent="subverticals"]
-visible = false
 position = Vector2( 150, -851 )
 points = PoolVector2Array( 200, 600, 200, 850 )
 width = 1.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="sv4" type="Line2D" parent="subverticals"]
-visible = false
 position = Vector2( 250, -851 )
 points = PoolVector2Array( 200, 600, 200, 850 )
 width = 1.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="sv5" type="Line2D" parent="subverticals"]
-visible = false
 position = Vector2( 350, -851 )
 points = PoolVector2Array( 200, 600, 200, 850 )
 width = 1.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="sv6" type="Line2D" parent="subverticals"]
-visible = false
 position = Vector2( 450, -851 )
 points = PoolVector2Array( 200, 600, 200, 850 )
 width = 1.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="sv7" type="Line2D" parent="subverticals"]
-visible = false
 position = Vector2( 550, -851 )
 points = PoolVector2Array( 200, 600, 200, 850 )
 width = 1.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="sv8" type="Line2D" parent="subverticals"]
-visible = false
 position = Vector2( 650, -851 )
 points = PoolVector2Array( 200, 600, 200, 850 )
 width = 1.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="sv9" type="Line2D" parent="subverticals"]
-visible = false
 position = Vector2( 750, -851 )
 points = PoolVector2Array( 200, 600, 200, 850 )
 width = 1.0
@@ -84,77 +74,66 @@ default_color = Color( 1, 1, 1, 1 )
 modulate = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
 
 [node name="v0" type="Line2D" parent="verticals"]
-visible = false
 position = Vector2( -20, -551 )
 points = PoolVector2Array( 20, 299, 20, 551 )
 width = 8.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="v1" type="Line2D" parent="verticals"]
-visible = false
 position = Vector2( -20, -551 )
 points = PoolVector2Array( 120, 300, 120, 550 )
 width = 5.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="v2" type="Line2D" parent="verticals"]
-visible = false
 position = Vector2( -20, -551 )
 points = PoolVector2Array( 220, 300, 220, 550 )
 width = 5.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="v3" type="Line2D" parent="verticals"]
-visible = false
 position = Vector2( -20, -551 )
 points = PoolVector2Array( 320, 300, 320, 550 )
 width = 5.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="v4" type="Line2D" parent="verticals"]
-visible = false
 position = Vector2( -20, -551 )
 points = PoolVector2Array( 420, 300, 420, 550 )
 width = 5.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="v5" type="Line2D" parent="verticals"]
-visible = false
 position = Vector2( -20, -551 )
 points = PoolVector2Array( 520, 300, 520, 550 )
 width = 5.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="v6" type="Line2D" parent="verticals"]
-visible = false
 position = Vector2( -20, -551 )
 points = PoolVector2Array( 620, 300, 620, 550 )
 width = 5.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="v7" type="Line2D" parent="verticals"]
-visible = false
 position = Vector2( -20, -551 )
 points = PoolVector2Array( 720, 300, 720, 550 )
 width = 5.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="v8" type="Line2D" parent="verticals"]
-visible = false
 position = Vector2( -20, -551 )
 points = PoolVector2Array( 820, 300, 820, 550 )
 width = 5.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="v9" type="Line2D" parent="verticals"]
-visible = false
 position = Vector2( -20, -551 )
 points = PoolVector2Array( 920, 300, 920, 550 )
 width = 5.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="v10" type="Line2D" parent="verticals"]
-visible = false
 position = Vector2( -20, -551 )
 points = PoolVector2Array( 1020, 299, 1020, 551 )
 width = 8.0
@@ -164,42 +143,36 @@ default_color = Color( 1, 1, 1, 1 )
 modulate = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
 
 [node name="h0" type="Line2D" parent="horizontals"]
-visible = false
 position = Vector2( -150, -901 )
 points = PoolVector2Array( 150, 650, 1150, 650 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="h1" type="Line2D" parent="horizontals"]
-visible = false
 position = Vector2( -150, -851 )
 points = PoolVector2Array( 150, 650, 1150, 650 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="h2" type="Line2D" parent="horizontals"]
-visible = false
 position = Vector2( -150, -801 )
 points = PoolVector2Array( 150, 650, 1150, 650 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="h3" type="Line2D" parent="horizontals"]
-visible = false
 position = Vector2( -150, -751 )
 points = PoolVector2Array( 150, 650, 1150, 650 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="h4" type="Line2D" parent="horizontals"]
-visible = false
 position = Vector2( -150, -701 )
 points = PoolVector2Array( 150, 650, 1150, 650 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="h5" type="Line2D" parent="horizontals"]
-visible = false
 position = Vector2( -150, -651 )
 points = PoolVector2Array( 150, 650, 1150, 650 )
 width = 2.0

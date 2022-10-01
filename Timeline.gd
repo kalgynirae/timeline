@@ -1,5 +1,7 @@
 extends Node2D
 
+export var rows = 5
+
 var colwidth = 100
 var rowheight = 50
 
@@ -11,7 +13,7 @@ var line_scene = preload("res://Line.tscn")
 var number_theme = load("res://TimelineNumbers.tres")
 
 func _ready():
-	generate(5)
+	generate()
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -20,10 +22,10 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_WHEEL_UP:
 			colwidth += 5
-			generate(5)
+			generate()
 		if event.button_index == BUTTON_WHEEL_DOWN:
 			colwidth -= 5
-			generate(5)
+			generate()
 
 #func _process(delta):
 #	pass
@@ -38,7 +40,7 @@ func clear():
 	for node in $subverticals.get_children():
 		node.queue_free()
 
-func generate(rows):
+func generate():
 	clear()
 	var height = rows * rowheight
 	for i in range(11):
@@ -83,13 +85,12 @@ func spawn_line(start_time, color):
 	var line = line_scene.instance()
 	line.color = color
 	line.start_time = start_time
-	line.connect("step_hit", self, "_on_step_hit")
+#	line.connect("step_hit", self, "_on_step_hit")
 	add_child(line)
 
-func _on_step_hit(step, _color):
-	print("step hit: ", step)
-	var line = get_node("verticals/vertical" + step as String)
-	var orig = line.width
-	line.width = 20
-	yield(get_tree().create_timer(0.1), "timeout")
-	line.width = orig
+#func _on_step_hit(step, _color):
+#	var line = get_node("verticals/vertical" + step as String)
+#	var orig = line.width
+#	line.width = 20
+#	yield(get_tree().create_timer(0.1), "timeout")
+#	line.width = orig
