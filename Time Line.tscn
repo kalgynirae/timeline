@@ -1,0 +1,17 @@
+[gd_scene format=2]
+
+[node name="Time Line" type="Node2D"]
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2( 13, 541 )
+points = PoolVector2Array( -13, -541, -13, -291 )
+default_color = Color( 0, 1, 0.0117647, 0.443137 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0, 1, 0.0117647, 1 )
+polygon = PoolVector2Array( -10, 0, 0, 10, 10, 0 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2( 0, 250 )
+color = Color( 0, 1, 0.0117647, 1 )
+polygon = PoolVector2Array( -10, 0, 0, -10, 10, 0 )
