@@ -66,8 +66,8 @@ func horizontal(y, length, width):
 
 func number(x, text):
 	var container = Control.new()
-	container.rect_position = Vector2(x - colwidth / 2, -6)
-	container.rect_size = Vector2(colwidth, rowheight)
+	container.rect_position = Vector2(x - abs(colwidth / 2), - (rowheight / 10))
+	container.rect_size = Vector2(abs(colwidth), rowheight)
 	var number = Label.new()
 	number.align = Label.ALIGN_CENTER
 	number.theme = number_theme
