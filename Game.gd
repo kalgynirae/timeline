@@ -11,13 +11,12 @@ var color = 0
 var start_time = 0
 
 func _ready():
-	var timer = Timer.new()
 	yield(get_tree().create_timer(0.5, false), "timeout")
 	start()
 
-func _process(delta):
+func _process(_delta):
 	var elapsed = Time.get_ticks_msec() - start_time
-	if elapsed > 5_000 - TIME_PADDING:
+	if elapsed > 4_000 - TIME_PADDING:
 		start()
 
 func start():

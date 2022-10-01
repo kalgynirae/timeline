@@ -11,7 +11,7 @@ func _ready():
 	position = start_position
 	$AnimationPlayer.play("show")
 
-func _process(delta):
+func _process(_delta):
 	var elapsed = Time.get_ticks_msec() - start_time
 	if 0 < elapsed and elapsed < duration:
 		if not started:
