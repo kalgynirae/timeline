@@ -28,5 +28,6 @@ text = "Edit: "
 
 [node name="LineEdit" type="LineEdit" parent="InputPanel/HBoxContainer"]
 margin_left = 36.0
-margin_right = 94.0
+margin_right = 472.0
 margin_bottom = 42.0
+size_flags_horizontal = 3

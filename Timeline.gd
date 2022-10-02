@@ -104,9 +104,20 @@ func _on_step_hit(step, lineid):
 			block.deactivate(lineid)
 
 func register_block(block):
-	block.row = (-block.position.y / row_height) - 1
-	block.start_step = (block.position.x / step_width)
-	block.stop_step = block.start_step + block.duration / step_duration
+	snap_block(block)
 #	print("pos=", block.position, "  row=", block.row, "  start=", block.start_step, "  stop=", block.stop_step)
-	block.deactivate(0)
 	_blocks.append(block)
+
+func unregister_block(block):
+	_blocks.erase(block)
+	block.deactivate_all()
+
+func snap_block(block):
+	block.row = round(-block.position.y as float / row_height)
+	block.start_step = round(block.position.x as float / step_width)
+	block.stop_step = block.start_step + block.duration / step_duration
+
+	# TODO: check bounds, unset *_step if out of bounds
+
+	block.position.x = block.start_step * step_width
+	block.position.y = -block.row * row_height

@@ -20,6 +20,7 @@ func _input(event):
 func show_popup(label):
 	_popup_shown = true
 	$InputPanel/HBoxContainer/Label.text = label + ": "
+	$InputPanel/HBoxContainer/LineEdit.text = ""
 	$InputPanel.popup_centered()
 	yield($InputPanel, "popup_hide")
 	return $InputPanel/HBoxContainer/LineEdit.text

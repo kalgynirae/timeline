@@ -16,6 +16,6 @@ start_y = 300
 position = Vector2( 25, 699 )
 
 [node name="TimeBlock" parent="Timeline" instance=ExtResource( 4 )]
-position = Vector2( 106, -152 )
+position = Vector2( 106, -155 )
 type = "claw_down"
 duration = 2000

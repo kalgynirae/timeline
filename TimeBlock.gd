@@ -10,12 +10,13 @@ const COLORS = {
 }
 
 var active = false
-var chosen = false
 var row
 var start_step
 var stop_step
 
 var _activated_by = {}
+var _grabbed = false
+var _grab_offset
 var _timeline
 
 func _enter_tree():
@@ -23,9 +24,15 @@ func _enter_tree():
 	_timeline.register_block(self)
 
 func _input(event):
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
-		if $ColorRect.get_global_rect().has_point(event.position):
-			toggle_choose()
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			if not _grabbed and $ColorRect.get_global_rect().has_point(event.position):
+				grab(event.position)
+			elif _grabbed:
+				ungrab()
+	if event is InputEventMouseMotion and _grabbed:
+		global_position = event.position - _grab_offset
+		_timeline.snap_block(self)
 
 func _ready():
 	$ColorRect.rect_size.x = duration as float / _timeline.step_duration * _timeline.step_width
@@ -47,6 +54,7 @@ func activate(lineid):
 	if _activated_by.empty():
 		active = true
 		$ColorRect.modulate = Color("ffffff")
+		$Particles.emitting = true
 		match type:
 			"foo":
 				print("foo")
@@ -59,19 +67,20 @@ func deactivate(lineid):
 	if _activated_by.empty():
 		active = false
 		$ColorRect.modulate = Color("bbbbbb")
+		$Particles.emitting = false
 
-func choose():
-	chosen = true
-	$Particles.emitting = true
+func deactivate_all():
+	_activated_by.clear()
+	deactivate(0)
+
+func grab(mouse_position):
+	_grabbed = true
+	_grab_offset = mouse_position - global_position
+	print("_grab_offset=", _grab_offset)
 	$AnimationPlayer.play("blink")
+	_timeline.unregister_block(self)
 
-func unchoose():
-	chosen = false
-	$Particles.emitting = false
+func ungrab():
+	_grabbed = false
 	$AnimationPlayer.play("RESET")
-
-func toggle_choose():
-	if chosen:
-		unchoose()
-	else:
-		choose()
+	_timeline.register_block(self)
