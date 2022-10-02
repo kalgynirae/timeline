@@ -46,3 +46,6 @@ func destroy():
 func set_height(rows: int):
 	$VLine.points[0].y = -rows * _timeline.row_height
 	$Top.position.y = -rows * _timeline.row_height
+	$Particles.process_material.emission_box_extents.y = rows * _timeline.row_height / 2
+	$Particles.position.y = -rows * _timeline.row_height / 2
+	$Particles.amount = 6 * rows
