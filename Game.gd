@@ -16,6 +16,8 @@ func _input(event):
 			var coro = show_popup("Level name")
 			var name = yield(coro, "completed")
 			load_level(name)
+	elif Input.is_action_pressed("quit"):
+		get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
 
 func show_popup(label):
 	_popup_shown = true

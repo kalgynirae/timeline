@@ -25,7 +25,7 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		if event.button_mask & BUTTON_MASK_MIDDLE:
 			position = event.position
-	if event is InputEventMouseButton and event.pressed:
+	elif event is InputEventMouseButton and event.pressed:
 		if event.shift:
 			match event.button_index:
 				BUTTON_WHEEL_UP:
@@ -39,6 +39,10 @@ func _input(event):
 				BUTTON_WHEEL_DOWN:
 					step_width -= 5
 		generate()
+	elif Input.is_action_pressed("pause"):
+		print("not implemented yet!")
+	elif Input.is_action_pressed("spawn_line"):
+		spawn_line(Time.get_ticks_msec(), Color("00ff00"))
 
 #func _process(delta):
 #	pass
