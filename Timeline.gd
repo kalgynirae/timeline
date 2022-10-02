@@ -94,6 +94,7 @@ func spawn_line(start_time, color):
 	line.start_time = start_time
 	line.connect("step_hit", self, "_on_step_hit")
 	add_child(line)
+	line.set_height(rows)
 
 func _on_step_hit(step, lineid):
 	for block in _blocks:

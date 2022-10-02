@@ -42,3 +42,7 @@ func destroy():
 	yield($AnimationPlayer, "animation_finished")
 	emit_signal("step_hit", 1000, lineid)
 	queue_free()
+
+func set_height(rows: int):
+	$VLine.points[0].y = -rows * _timeline.row_height
+	$Top.position.y = -rows * _timeline.row_height
