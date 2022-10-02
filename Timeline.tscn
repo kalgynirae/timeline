@@ -177,3 +177,5 @@ position = Vector2( -150, -651 )
 points = PoolVector2Array( 150, 650, 1150, 650 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
+
+[node name="blocks" type="Node2D" parent="."]

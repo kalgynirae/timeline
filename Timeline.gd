@@ -12,6 +12,8 @@ var steps = 10
 var line_scene = preload("res://Line.tscn")
 var number_theme = load("res://TimelineNumbers.tres")
 
+var _blocks = []
+
 func _ready():
 	generate()
 
@@ -85,12 +87,20 @@ func spawn_line(start_time, color):
 	var line = line_scene.instance()
 	line.color = color
 	line.start_time = start_time
-#	line.connect("step_hit", self, "_on_step_hit")
+	line.connect("step_hit", self, "_on_step_hit")
 	add_child(line)
 
-#func _on_step_hit(step, _color):
-#	var line = get_node("verticals/vertical" + step as String)
-#	var orig = line.width
-#	line.width = 20
-#	yield(get_tree().create_timer(0.1), "timeout")
-#	line.width = orig
+func _on_step_hit(step, _color):
+	for block in _blocks:
+		if block.start_step == step:
+			block.activate()
+		if block.stop_step == step:
+			block.deactivate()
+
+func register_block(block):
+	block.row = (-block.position.y / rowheight) - 1
+	block.start_step = (block.position.x / colwidth)
+	block.stop_step = block.start_step + block.duration
+#	print("pos=", block.position, "  row=", block.row, "  start=", block.start_step, "  stop=", block.stop_step)
+	block.deactivate()
+	_blocks.append(block)
