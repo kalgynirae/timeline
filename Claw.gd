@@ -14,16 +14,17 @@ export var start_y = 100
 
 export var speed = 2
 
-var claw_state
+var isClosed = false
 
+const VT_OFFSET = -15
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	$Claw_body.position = Vector2(start_x, start_y)
-	$Claw_body.position[0] = start_x
-	$Claw_body.position[1] = start_y
+	$Claw_body.position.x = start_x
+	$Claw_body.position.y = start_y
 	
-	UpdateGraphics(claw_x, claw_y)
+	UpdateGraphics()
 	
 
 
@@ -31,8 +32,14 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func UpdateGraphics(x,y):
+func UpdateGraphics():
+	var x = $Claw_body.position.x
+	var y = $Claw_body.position.y
 	
-	var vt1 = $VerticalTrack.polygon
-	var vt2 = $VerticalTrack.polygon
+	$VerticalTrack.scale.y = y
+	$VerticalTrack.position.x = x + VT_OFFSET
 	
+	
+func MoveDown():
+	$Claw_body.position.y += speed
+	UpdateGraphics()

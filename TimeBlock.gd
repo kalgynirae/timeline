@@ -6,6 +6,7 @@ export var duration: int
 const COLORS = {
 	"foo": Color("c04040"),
 	"spawn_line": Color("00ff00"),
+	"claw_down": Color("0000ff")
 }
 
 var active = false
@@ -26,7 +27,11 @@ func _ready():
 	$ColorRect.color = COLORS[type]
 
 func _process(delta):
-	pass
+	if active:
+		match type:
+			"claw_down":
+				get_node("/root/Game/CurrentLevel/TestC/Claw").MoveDown()
+				
 
 func activate(lineid):
 	if _activated_by.empty():
