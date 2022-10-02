@@ -77,10 +77,12 @@ func grab(mouse_position):
 	_grabbed = true
 	_grab_offset = mouse_position - global_position
 	print("_grab_offset=", _grab_offset)
-	$AnimationPlayer.play("blink")
 	_timeline.unregister_block(self)
+	$AnimationPlayer.play("blink")
 
 func ungrab():
 	_grabbed = false
-	$AnimationPlayer.play("RESET")
-	_timeline.register_block(self)
+	if _timeline.register_block(self):
+		$AnimationPlayer.play("RESET")
+	else:
+		$AnimationPlayer.play("disabled")
