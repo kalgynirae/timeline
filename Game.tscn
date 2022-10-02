@@ -1,14 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://levels/Test1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game.gd" type="Script" id=3]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="CurrentLevel" type="Node" parent="."]
-
-[node name="Test1" parent="CurrentLevel" instance=ExtResource( 2 )]
 
 [node name="InputPanel" type="PopupPanel" parent="."]
 visible = true
