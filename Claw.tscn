@@ -4,7 +4,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "Close"
-length = 0.5
+length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Claw_right:rotation_degrees")
 tracks/0/interp = 1
@@ -12,7 +12,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( -4.75, 1 ),
 "update": 0,
 "values": [ -10.0, 25.0 ]
@@ -24,7 +24,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( -4.75683, 1 ),
 "update": 0,
 "values": [ 10.0, -25.0 ]

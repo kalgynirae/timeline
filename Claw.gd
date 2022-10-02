@@ -6,15 +6,17 @@ extends Node2D
 # var b = "text"
 export var max_y = 500
 export var min_y = 100
-export var max_x = 100
-export var min_x = 1180
+export var max_x = 1180
+export var min_x = 100
 
 export var start_x = 100
 export var start_y = 100
 
-export var speed = 2
+export var speed_x = 1.0
+export var speed_y = 1.0
 
-var isClosed = false
+var closed = false
+var actuating = false
 
 const VT_OFFSET = -15
 
@@ -38,8 +40,47 @@ func UpdateGraphics():
 
 	$VerticalTrack.scale.y = y
 	$VerticalTrack.position.x = x + VT_OFFSET
-
+	
+func MoveUp():
+	var new_y = $Claw_body.position.y - speed_y
+	if new_y < min_y:
+		new_y = min_y
+	$Claw_body.position.y = new_y
+	UpdateGraphics()
 
 func MoveDown():
-	$Claw_body.position.y += speed
+	var new_y = $Claw_body.position.y + speed_y
+	if new_y > max_y:
+		new_y = max_y
+	$Claw_body.position.y = new_y
 	UpdateGraphics()
+
+func MoveLeft():
+	var new_x = $Claw_body.position.x - speed_x
+	if new_x < min_x:
+		new_x = min_x
+	$Claw_body.position.x = new_x
+	UpdateGraphics()
+
+func MoveRight():
+	var new_x = $Claw_body.position.x + speed_x
+	if new_x > max_x:
+		new_x = max_x
+	$Claw_body.position.x = new_x
+	UpdateGraphics()
+
+func Close():
+	if not closed and not actuating:
+		actuating = true
+		$Claw_body/AnimationPlayer.play("Close")
+		yield($Claw_body/AnimationPlayer, "animation_finished")
+		actuating = false
+		closed = true
+	
+func Open():
+	if closed and not actuating:
+		actuating = true
+		$Claw_body/AnimationPlayer.play_backwards("Close")
+		yield($Claw_body/AnimationPlayer, "animation_finished")
+		actuating = false
+		closed = false

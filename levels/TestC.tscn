@@ -10,13 +10,42 @@ script = ExtResource( 2 )
 
 [node name="Claw" parent="." instance=ExtResource( 1 )]
 start_x = 300
-start_y = 300
 
 [node name="Timeline" parent="." instance=ExtResource( 3 )]
 unique_name_in_owner = true
 position = Vector2( 25, 699 )
 
 [node name="TimeBlock" parent="Timeline" instance=ExtResource( 4 )]
-position = Vector2( 106, -155 )
+position = Vector2( 4, -201 )
 type = "claw_down"
 duration = 2000
+
+[node name="TimeBlock2" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 202, -150 )
+type = "claw_right"
+duration = 2000
+
+[node name="TimeBlock3" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 405, -101 )
+type = "claw_up"
+duration = 2000
+
+[node name="TimeBlock4" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 602, -52 )
+type = "claw_left"
+duration = 2000
+
+[node name="TimeBlock5" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 973, -52 )
+type = "spawn_line"
+duration = 250
+
+[node name="TimeBlock6" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 302, -201 )
+type = "claw_close"
+duration = 250
+
+[node name="TimeBlock7" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 650, -200 )
+type = "claw_open"
+duration = 250

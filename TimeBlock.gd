@@ -6,7 +6,12 @@ export var duration: int
 const COLORS = {
 	"foo": Color("d04040"),
 	"spawn_line": Color("20f020"),
-	"claw_down": Color("3080f0")
+	"claw_up": Color("3080f0"),
+	"claw_down": Color("5080f0"),
+	"claw_left": Color("7080f0"),
+	"claw_right": Color("9080f0"),
+	"claw_open": Color("37d67a"),
+	"claw_close": Color("e91e63")
 }
 
 var active = false
@@ -45,8 +50,14 @@ func _ready():
 func _process(delta):
 	if active:
 		match type:
+			"claw_up":
+				get_node("/root/Game/CurrentLevel/TestC/Claw").MoveUp()
 			"claw_down":
 				get_node("/root/Game/CurrentLevel/TestC/Claw").MoveDown()
+			"claw_left":
+				get_node("/root/Game/CurrentLevel/TestC/Claw").MoveLeft()
+			"claw_right":
+				get_node("/root/Game/CurrentLevel/TestC/Claw").MoveRight()
 
 func resize():
 	var size_x = duration as float / _timeline.step_duration * _timeline.step_width
@@ -67,6 +78,10 @@ func activate(lineid):
 				print("foo")
 			"spawn_line":
 				_timeline.spawn_line(Time.get_ticks_msec() + duration, Color("00ff00"))
+			"claw_open":
+				get_node("/root/Game/CurrentLevel/TestC/Claw").Open()
+			"claw_close":
+				get_node("/root/Game/CurrentLevel/TestC/Claw").Close()
 	_activated_by[lineid] = true
 
 func deactivate(lineid):
