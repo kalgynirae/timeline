@@ -1,0 +1,91 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Claw_right:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -4.75, 1 ),
+"update": 0,
+"values": [ -10.0, 25.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Claw_left:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -4.75683, 1 ),
+"update": 0,
+"values": [ 10.0, -25.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Claw_right:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( -4.75 ),
+"update": 0,
+"values": [ -10.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Claw_left:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( -4.75683 ),
+"update": 0,
+"values": [ 10.0 ]
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Track1" type="Polygon2D" parent="."]
+position = Vector2( 0, 50 )
+color = Color( 0.435294, 0.427451, 0.443137, 1 )
+polygon = PoolVector2Array( 0, 0, 1280, 0, 1280, 50, 0, 50 )
+
+[node name="Track2" type="Polygon2D" parent="Track1"]
+color = Color( 0.388235, 0, 0.0705882, 1 )
+polygon = PoolVector2Array( 0, 20, 1280, 20, 1280, 30, 0, 30 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 75, 200 )
+collision_layer = 2
+
+[node name="Claw_body" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -25, -43.3 )
+polygon = PoolVector2Array( 0, 0, 50, 0, 75, 43.3, 50, 86.6, 0, 86.6, -25, 43.3 )
+
+[node name="Claw_right" type="StaticBody2D" parent="StaticBody2D"]
+rotation = -0.174533
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D/Claw_right"]
+polygon = PoolVector2Array( 0, 0, 5, -19, 112, 9, 152, 72, 134, 121, 84, 146, 118, 115, 122, 68, 95, 27 )
+
+[node name="Claw_left" type="StaticBody2D" parent="StaticBody2D"]
+rotation = 0.174533
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D/Claw_left"]
+polygon = PoolVector2Array( 0, 0, -5, -19, -112, 9, -152, 72, -134, 121, -84, 146, -118, 115, -122, 68, -95, 27 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D"]
+anims/Close = SubResource( 1 )
+anims/RESET = SubResource( 2 )
