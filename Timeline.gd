@@ -22,7 +22,7 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		if event.button_mask & BUTTON_LEFT:
+		if event.button_mask & BUTTON_MASK_MIDDLE:
 			position = event.position
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_WHEEL_UP:
