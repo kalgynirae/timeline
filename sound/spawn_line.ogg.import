@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/spawn_line.ogg-dbc494c5a5a1971e3eb4e4fe89918b00.oggstr"
+
+[deps]
+
+source_file="res://sound/spawn_line.ogg"
+dest_files=[ "res://.import/spawn_line.ogg-dbc494c5a5a1971e3eb4e4fe89918b00.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

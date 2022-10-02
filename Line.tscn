@@ -1,6 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Line.gd" type="Script" id=1]
+[ext_resource path="res://sound/spawn_line.ogg" type="AudioStream" id=2]
+[ext_resource path="res://sound/line_start.ogg" type="AudioStream" id=3]
 
 [sub_resource type="Gradient" id=6]
 offsets = PoolRealArray( 0, 0.73545, 1 )
@@ -134,7 +136,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=4]
 resource_name = "show"
-length = 0.25
+length = 0.4
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("VLine:width")
@@ -143,7 +145,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15 ),
+"times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 10.0 ]
@@ -155,7 +157,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.25 ),
+"times": PoolRealArray( 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
@@ -167,7 +169,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.1, 0.25 ),
+"times": PoolRealArray( 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
@@ -248,3 +250,11 @@ anims/RESET = SubResource( 5 )
 anims/hide = SubResource( 2 )
 anims/show = SubResource( 4 )
 anims/shown = SubResource( 3 )
+
+[node name="SpawnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -2.0
+
+[node name="StartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -8.0

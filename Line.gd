@@ -18,6 +18,7 @@ func _enter_tree():
 func _ready():
 	modulate = color
 	$AnimationPlayer.play("show")
+	$SpawnSound.play(0.05)
 
 func _process(_delta):
 	var elapsed = Time.get_ticks_msec() - start_time
@@ -27,6 +28,8 @@ func _process(_delta):
 
 	if elapsed > 0:
 		if not _started:
+			_started = true
+			$StartSound.play()
 			$Particles.emitting = true
 		position.x = width * min(elapsed as float / duration, 1.0)
 
