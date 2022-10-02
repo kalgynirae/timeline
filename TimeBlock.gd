@@ -38,9 +38,9 @@ func _ready():
 	$ColorRect.rect_size.x = duration as float / _timeline.step_duration * _timeline.step_width
 	$ColorRect/Label.text = type
 	$ColorRect.color = COLORS.get(type, Color("c0c0c0"))
-	$Particles.amount = $ColorRect.rect_size.x / 2
+	$Particles.amount = $ColorRect.rect_size.x
 	$Particles.position = $ColorRect.rect_size / 2
-	$Particles.process_material.emission_box_extents.x = max($ColorRect.rect_size.x / 2 - 15, 5)
+	$Particles.process_material.emission_box_extents.x = max($ColorRect.rect_size.x / 2 - 5, 5)
 	$Particles.process_material.color = COLORS.get(type, Color("c0c0c0")).lightened(0.3)
 	$Particles.process_material.color.a = 0.75
 
