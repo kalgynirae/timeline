@@ -31,7 +31,6 @@ func _process(delta):
 		match type:
 			"claw_down":
 				get_node("/root/Game/CurrentLevel/TestC/Claw").MoveDown()
-				
 
 func activate(lineid):
 	if _activated_by.empty():

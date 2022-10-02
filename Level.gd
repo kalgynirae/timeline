@@ -13,5 +13,5 @@ extends Node
 #func _process(delta):
 #	pass
 
-func start(start_time: int):
+func start(_start_time: int):
 	pass
