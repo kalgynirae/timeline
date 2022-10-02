@@ -1,18 +1,21 @@
 extends Node2D
 
 export var rows = 5
+export var locked_rows = 1
 
-var colwidth = 100
-var rowheight = 50
+var step_width = 25
+var row_height = 50
 
 var line_start_position = Vector2(100, -311)
-var step_duration = 1_000
-var steps = 10
+var step_duration = 250
+var steps = 40
+var primary_every = 4
 
 var line_scene = preload("res://Line.tscn")
 var number_theme = load("res://TimelineNumbers.tres")
 
 var _blocks = []
+var _next_lineid = 1
 
 func _ready():
 	generate()
@@ -23,10 +26,10 @@ func _input(event):
 			position = event.position
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_WHEEL_UP:
-			colwidth += 5
+			step_width += 5
 			generate()
 		if event.button_index == BUTTON_WHEEL_DOWN:
-			colwidth -= 5
+			step_width -= 5
 			generate()
 
 #func _process(delta):
@@ -44,20 +47,20 @@ func clear():
 
 func generate():
 	clear()
-	var height = rows * rowheight
+	var height = rows * row_height
 	for i in range(11):
 		var line
 		if i == 0 or i == 10:
-			line = vertical(i*colwidth, height, 8)
+			line = vertical(i*step_width*primary_every, height, 8)
 		else:
-			line = vertical(i*colwidth, height, 4)
+			line = vertical(i*step_width*primary_every, height, 4)
 		line.name = "vertical" + i as String
 		$verticals.add_child(line)
-		$numbers.add_child(number(i*colwidth, i as String))
+		$numbers.add_child(number(i*step_width*primary_every, i as String))
 	for i in range(10):
-		$subverticals.add_child(vertical(i*colwidth + colwidth / 2, height, 1))
+		$subverticals.add_child(vertical(i*step_width*primary_every + step_width*primary_every/2, height, 1))
 	for i in range(rows+1):
-		$horizontals.add_child(horizontal(-i*rowheight, 10*colwidth, 2))
+		$horizontals.add_child(horizontal(-i*row_height, steps*step_width, 2))
 
 func vertical(x, height, width):
 	var line = Line2D.new()
@@ -73,8 +76,8 @@ func horizontal(y, length, width):
 
 func number(x, text):
 	var container = Control.new()
-	container.rect_position = Vector2(x - abs(colwidth / 2), - (rowheight / 10))
-	container.rect_size = Vector2(abs(colwidth), rowheight)
+	container.rect_position = Vector2(x - abs(step_width), - (row_height / 10))
+	container.rect_size = Vector2(abs(step_width * 2), row_height)
 	var number = Label.new()
 	number.align = Label.ALIGN_CENTER
 	number.theme = number_theme
@@ -86,21 +89,23 @@ func number(x, text):
 func spawn_line(start_time, color):
 	var line = line_scene.instance()
 	line.color = color
+	line.lineid = _next_lineid
+	_next_lineid += 1
 	line.start_time = start_time
 	line.connect("step_hit", self, "_on_step_hit")
 	add_child(line)
 
-func _on_step_hit(step, _color):
+func _on_step_hit(step, lineid):
 	for block in _blocks:
-		if block.start_step == step:
-			block.activate()
-		if block.stop_step == step:
-			block.deactivate()
+		if block.start_step <= step and step < block.stop_step:
+			block.activate(lineid)
+		if block.stop_step <= step:
+			block.deactivate(lineid)
 
 func register_block(block):
-	block.row = (-block.position.y / rowheight) - 1
-	block.start_step = (block.position.x / colwidth)
-	block.stop_step = block.start_step + block.duration
+	block.row = (-block.position.y / row_height) - 1
+	block.start_step = (block.position.x / step_width)
+	block.stop_step = block.start_step + block.duration / step_duration
 #	print("pos=", block.position, "  row=", block.row, "  start=", block.start_step, "  stop=", block.stop_step)
-	block.deactivate()
+	block.deactivate(0)
 	_blocks.append(block)

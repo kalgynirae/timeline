@@ -5,7 +5,7 @@ var _popup_shown = false
 var Toast = preload("res://Toast.tscn")
 
 func _ready():
-	load_level("test1")
+	load_level("Test1")
 
 func _input(event):
 	if event is InputEventKey and event.pressed and event.scancode == KEY_ENTER:

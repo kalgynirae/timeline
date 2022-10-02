@@ -1,8 +1,9 @@
 extends Node2D
 
-signal step_hit(step, color)
+signal step_hit(step, lineid)
 
 var color
+var lineid
 var start_time
 
 var _destroy_after_duration = true
@@ -20,7 +21,7 @@ func _ready():
 
 func _process(_delta):
 	var elapsed = Time.get_ticks_msec() - start_time
-	var width = _timeline.colwidth * _timeline.steps
+	var width = _timeline.step_width * _timeline.steps
 	var duration = _timeline.step_duration * _timeline.steps
 	var _next_step_duration = _timeline.step_duration * _next_step
 
@@ -30,7 +31,7 @@ func _process(_delta):
 		position.x = width * min(elapsed as float / duration, 1.0)
 
 		if elapsed > _next_step_duration:
-			emit_signal("step_hit", _next_step, color)
+			emit_signal("step_hit", _next_step, lineid)
 			_next_step += 1
 
 	if elapsed >= duration and _destroy_after_duration:
@@ -39,4 +40,5 @@ func _process(_delta):
 func destroy():
 	$AnimationPlayer.play("hide")
 	yield($AnimationPlayer, "animation_finished")
+	emit_signal("step_hit", 1000, lineid)
 	queue_free()
