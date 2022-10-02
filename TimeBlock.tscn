@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://TimeBlock.gd" type="Script" id=1]
+[ext_resource path="res://sound/block_active.ogg" type="AudioStream" id=2]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -93,3 +94,7 @@ margin_bottom = -5.0
 anims/RESET = SubResource( 4 )
 anims/blink = SubResource( 5 )
 anims/disabled = SubResource( 6 )
+
+[node name="ActiveSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -9.0

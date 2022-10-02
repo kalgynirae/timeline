@@ -73,6 +73,7 @@ func activate(lineid):
 		active = true
 		$ColorRect.modulate = Color("ffffff")
 		$Particles.emitting = true
+		$ActiveSound.play()
 		match type:
 			"foo":
 				print("foo")
@@ -90,6 +91,7 @@ func deactivate(lineid):
 		active = false
 		$ColorRect.modulate = Color("bbbbbb")
 		$Particles.emitting = false
+		$ActiveSound.stop()
 
 func deactivate_all():
 	_activated_by.clear()
