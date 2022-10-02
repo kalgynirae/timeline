@@ -8,6 +8,7 @@
 script = ExtResource( 2 )
 
 [node name="Timeline" parent="." instance=ExtResource( 1 )]
+unique_name_in_owner = true
 position = Vector2( 50, 675 )
 
 [node name="TimeBlock" parent="Timeline" instance=ExtResource( 3 )]

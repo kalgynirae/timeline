@@ -23,9 +23,9 @@ func _ready():
 #	$Claw_body.position = Vector2(start_x, start_y)
 	$Claw_body.position.x = start_x
 	$Claw_body.position.y = start_y
-	
+
 	UpdateGraphics()
-	
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,11 +35,11 @@ func _ready():
 func UpdateGraphics():
 	var x = $Claw_body.position.x
 	var y = $Claw_body.position.y
-	
+
 	$VerticalTrack.scale.y = y
 	$VerticalTrack.position.x = x + VT_OFFSET
-	
-	
+
+
 func MoveDown():
 	$Claw_body.position.y += speed
 	UpdateGraphics()

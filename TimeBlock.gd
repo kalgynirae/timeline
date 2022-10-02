@@ -17,30 +17,28 @@ var stop_step
 var _activated_by = {}
 var _grabbed = false
 var _grab_offset
+var _locked = false
 var _timeline
 
 func _enter_tree():
-	_timeline = get_node("..")
-	_timeline.register_block(self)
+	_timeline = get_node("%Timeline")
+	_timeline.register_block(self, true)
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
+		if event.button_index == BUTTON_LEFT and event.pressed and not _locked:
 			if not _grabbed and $ColorRect.get_global_rect().has_point(event.position):
 				grab(event.position)
 			elif _grabbed:
 				ungrab()
 	if event is InputEventMouseMotion and _grabbed:
 		global_position = event.position - _grab_offset
-		_timeline.snap_block(self)
+		_timeline.snap_block(self, false)
 
 func _ready():
-	$ColorRect.rect_size.x = duration as float / _timeline.step_duration * _timeline.step_width
+	resize()
 	$ColorRect/Label.text = type
 	$ColorRect.color = COLORS.get(type, Color("c0c0c0"))
-	$Particles.amount = $ColorRect.rect_size.x
-	$Particles.position = $ColorRect.rect_size / 2
-	$Particles.process_material.emission_box_extents.x = max($ColorRect.rect_size.x / 2 - 5, 5)
 	$Particles.process_material.color = COLORS.get(type, Color("c0c0c0")).lightened(0.3)
 	$Particles.process_material.color.a = 0.75
 
@@ -49,6 +47,15 @@ func _process(delta):
 		match type:
 			"claw_down":
 				get_node("/root/Game/CurrentLevel/TestC/Claw").MoveDown()
+
+func resize():
+	var size_x = duration as float / _timeline.step_duration * _timeline.step_width
+	$ColorRect.rect_size.x = abs(size_x)
+	if size_x < 0:
+		position.x += size_x
+	$Particles.amount = $ColorRect.rect_size.x
+	$Particles.position = $ColorRect.rect_size / 2
+	$Particles.process_material.emission_box_extents.x = max($ColorRect.rect_size.x / 2 - 5, 5)
 
 func activate(lineid):
 	if _activated_by.empty():
@@ -82,7 +89,13 @@ func grab(mouse_position):
 
 func ungrab():
 	_grabbed = false
-	if _timeline.register_block(self):
+	if _timeline.register_block(self, false):
 		$AnimationPlayer.play("RESET")
 	else:
 		$AnimationPlayer.play("disabled")
+
+func lock():
+	_locked = true
+
+func unlock():
+	_locked = false
