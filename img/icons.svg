@@ -25,15 +25,15 @@
      inkscape:document-units="mm"
      showgrid="false"
      showguides="true"
-     inkscape:zoom="0.91490598"
-     inkscape:cx="417.52924"
-     inkscape:cy="366.15784"
+     inkscape:zoom="3.6596239"
+     inkscape:cx="499.23163"
+     inkscape:cy="459.61007"
      inkscape:window-width="2560"
      inkscape:window-height="1387"
      inkscape:window-x="2552"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g987" />
+     inkscape:current-layer="layer1" />
   <defs
      id="defs2" />
   <g
@@ -66,68 +66,137 @@
        inkscape:export-filename="lock.png"
        inkscape:export-xdpi="101.29"
        inkscape:export-ydpi="101.29" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:52.3168px;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:4.35972"
+       x="8.736496"
+       y="47.117085"
+       id="text242"
+       inkscape:export-filename="title.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan240"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:52.3168px;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:4.35972"
+         x="8.736496"
+         y="47.117085">Timeline</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.8552px;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:0.127668"
+       x="31.140265"
+       y="62.10556"
+       id="text471"
+       inkscape:export-filename="devs.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan469"
+         style="stroke-width:0.127668"
+         x="31.140265"
+         y="62.10556">by kalgynirae and ictteuth</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.8552px;line-height:normal;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.127668;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+       x="53.128227"
+       y="81.675964"
+       id="text246"
+       inkscape:export-filename="restart.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan244"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.8552px;line-height:normal;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.127668;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+         x="53.128227"
+         y="81.675964">Type R to restart</tspan></text>
     <g
-       id="g987"
-       inkscape:export-filename="line.png"
-       inkscape:export-xdpi="110.53"
-       inkscape:export-ydpi="110.53">
+       id="g595"
+       transform="translate(-1.9288853,-0.14107021)">
       <rect
-         style="fill:#00f800;stroke-width:0.306856;fill-opacity:1"
+         style="fill:#00f800;fill-opacity:1;stroke-width:0.306856"
          id="rect292"
          width="4.4282494"
          height="13.622328"
          x="59.118961"
          y="96.188126" />
       <path
-         style="fill:#00cd00;stroke-width:0.350394;fill-opacity:1"
+         style="fill:#00cd00;fill-opacity:1;stroke-width:0.350394"
          d="m 56.904837,95.645891 4.428249,4.428249 4.428249,-4.428249 z"
          id="path406" />
       <path
-         style="fill:#00cd00;stroke-width:0.350394;fill-opacity:1"
+         style="fill:#00cd00;fill-opacity:1;stroke-width:0.350394"
          d="m 56.904837,110.35269 4.428249,-4.42824 4.428249,4.42824 z"
          id="path406-3" />
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:52.3168px;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:4.35972"
-         x="8.736496"
-         y="47.117085"
-         id="text242"
-         inkscape:export-filename="title.png"
-         inkscape:export-xdpi="96"
-         inkscape:export-ydpi="96"><tspan
-           sodipodi:role="line"
-           id="tspan240"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:52.3168px;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:4.35972"
-           x="8.736496"
-           y="47.117085">Timeline</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.8552px;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:0.127668"
-         x="31.140265"
-         y="62.10556"
-         id="text471"
-         inkscape:export-filename="devs.png"
-         inkscape:export-xdpi="96"
-         inkscape:export-ydpi="96"><tspan
-           sodipodi:role="line"
-           id="tspan469"
-           style="stroke-width:0.127668"
-           x="31.140265"
-           y="62.10556">by kalgynirae and ictteuth</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.8552px;line-height:normal;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.127668;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
-         x="53.128227"
-         y="81.675964"
-         id="text246"
-         inkscape:export-filename="restart.png"
-         inkscape:export-xdpi="96"
-         inkscape:export-ydpi="96"><tspan
-           sodipodi:role="line"
-           id="tspan244"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.8552px;line-height:normal;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.127668;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
-           x="53.128227"
-           y="81.675964">Type R to restart</tspan></text>
+    </g>
+    <g
+       id="g644"
+       inkscape:export-filename="left.png"
+       inkscape:export-xdpi="145.02185"
+       inkscape:export-ydpi="145.02185">
+      <path
+         style="fill:#000000;fill-opacity:1;stroke-width:0.350394"
+         d="m 124.195,117.1335 -4.42826,4.42825 4.42826,4.42825 z"
+         id="path406-9" />
+      <rect
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.101367;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+         id="rect640"
+         width="6.8066406"
+         height="3.7508123"
+         x="124.16944"
+         y="119.68636" />
+    </g>
+    <g
+       id="g644-3"
+       transform="matrix(-1,0,0,1,268.01528,2e-5)"
+       inkscape:export-filename="right.png"
+       inkscape:export-xdpi="145.02185"
+       inkscape:export-ydpi="145.02185">
+      <path
+         style="fill:#000000;fill-opacity:1;stroke-width:0.350394"
+         d="m 124.195,117.1335 -4.42826,4.42825 4.42826,4.42825 z"
+         id="path406-9-5" />
+      <rect
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.101367;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+         id="rect640-9"
+         width="6.8066406"
+         height="3.7508123"
+         x="124.16944"
+         y="119.68636" />
+    </g>
+    <g
+       id="g644-3-8"
+       transform="matrix(0,1,1,0,12.18947,-18.008944)"
+       inkscape:export-filename="up.png"
+       inkscape:export-xdpi="145.02185"
+       inkscape:export-ydpi="145.02185">
+      <path
+         style="fill:#000000;fill-opacity:1;stroke-width:0.350394"
+         d="m 124.195,117.1335 -4.42826,4.42825 4.42826,4.42825 z"
+         id="path406-9-5-6" />
+      <rect
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.101367;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+         id="rect640-9-5"
+         width="6.8066406"
+         height="3.7508123"
+         x="124.16944"
+         y="119.68636" />
+    </g>
+    <g
+       id="g644-3-8-4"
+       transform="rotate(-90,136.08984,123.32198)"
+       inkscape:export-filename="down.png"
+       inkscape:export-xdpi="145.02185"
+       inkscape:export-ydpi="145.02185">
+      <path
+         style="fill:#000000;fill-opacity:1;stroke-width:0.350394"
+         d="m 124.195,117.1335 -4.42826,4.42825 4.42826,4.42825 z"
+         id="path406-9-5-6-2" />
+      <rect
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.101367;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+         id="rect640-9-5-1"
+         width="6.8066406"
+         height="3.7508123"
+         x="124.16944"
+         y="119.68636" />
     </g>
   </g>
 </svg>

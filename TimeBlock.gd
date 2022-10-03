@@ -11,15 +11,15 @@ const COLORS = {
 	"quit": Color("c00000"),
 	"spawn_line": Color("606060"),
 	"lock": Color("606060"),
-	"claw_up": Color("3080f0"),
-	"claw_down": Color("5080f0"),
-	"claw_left": Color("7080f0"),
-	"claw_right": Color("9080f0"),
-	"claw_open": Color("37d67a"),
-	"claw_close": Color("e91e63"),
-	"tf_left": Color("37d67a"),
-	"tf_right": Color("e91e63"),
-	"tf_jump": Color("77D900")
+	"claw_up": Color("ffffff"),
+	"claw_down": Color("ffffff"),
+	"claw_left": Color("ffffff"),
+	"claw_right": Color("ffffff"),
+	"claw_open": Color("7080f0"),
+	"claw_close": Color("7080f0"),
+	"tf_left": Color("ff4040"),
+	"tf_right": Color("ff4040"),
+	"tf_jump": Color("ff4040")
 }
 
 var active = false
@@ -70,6 +70,18 @@ func _ready():
 		"spawn_line":
 			$ColorRect/Label.text = ""
 			$ColorRect/LineIcon.visible = true
+		"claw_left", "tf_left":
+			$ColorRect/Label.text = ""
+			$ColorRect/LeftIcon.visible = true
+		"claw_right", "tf_right":
+			$ColorRect/Label.text = ""
+			$ColorRect/RightIcon.visible = true
+		"claw_up", "tf_jump":
+			$ColorRect/Label.text = ""
+			$ColorRect/UpIcon.visible = true
+		"claw_down":
+			$ColorRect/Label.text = ""
+			$ColorRect/DownIcon.visible = true
 
 func _process(_delta):
 	if active:
@@ -96,6 +108,10 @@ func resize():
 	$DarkParticles.process_material.emission_box_extents.x = max($ColorRect.rect_size.x / 2 - 5, 5)
 	$ColorRect/LockIcon.position.x = $ColorRect.rect_size.x / 2
 	$ColorRect/LineIcon.position.x = $ColorRect.rect_size.x / 2
+	$ColorRect/LeftIcon.position.x = $ColorRect.rect_size.x / 2
+	$ColorRect/RightIcon.position.x = $ColorRect.rect_size.x / 2
+	$ColorRect/UpIcon.position.x = $ColorRect.rect_size.x / 2
+	$ColorRect/DownIcon.position.x = $ColorRect.rect_size.x / 2
 
 func activate(lineid):
 	if _activated_by.empty():

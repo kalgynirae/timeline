@@ -1,10 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://TimeBlock.gd" type="Script" id=1]
 [ext_resource path="res://sound/block_active.ogg" type="AudioStream" id=2]
 [ext_resource path="res://LockIcon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://LineIcon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sound/block_active_dingly.ogg" type="AudioStream" id=5]
+[ext_resource path="res://img/right.png" type="Texture" id=6]
+[ext_resource path="res://img/up.png" type="Texture" id=7]
+[ext_resource path="res://img/left.png" type="Texture" id=8]
+[ext_resource path="res://img/down.png" type="Texture" id=9]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -65,6 +69,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "blink"
+length = 0.6
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:self_modulate")
@@ -73,10 +78,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.313726 ), Color( 1, 1, 1, 0.627451 ), Color( 1, 1, 1, 0.313726 ) ]
+"values": [ Color( 1, 1, 1, 0.235294 ), Color( 1, 1, 1, 0.627451 ), Color( 1, 1, 1, 0.235294 ) ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -126,8 +131,31 @@ scale = Vector2( 0.6, 0.6 )
 
 [node name="LineIcon" parent="ColorRect" instance=ExtResource( 4 )]
 visible = false
-position = Vector2( 24, 11 )
-scale = Vector2( 0.6, 0.6 )
+position = Vector2( 24, 1.90735e-06 )
+
+[node name="LeftIcon" type="Sprite" parent="ColorRect"]
+visible = false
+position = Vector2( 24, 25 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="RightIcon" type="Sprite" parent="ColorRect"]
+visible = false
+position = Vector2( 27, 25 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="UpIcon" type="Sprite" parent="ColorRect"]
+visible = false
+position = Vector2( 25, 23 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="DownIcon" type="Sprite" parent="ColorRect"]
+visible = false
+position = Vector2( 25, 26 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
 
 [node name="DarkParticles" type="Particles2D" parent="."]
 position = Vector2( 0, -130 )
