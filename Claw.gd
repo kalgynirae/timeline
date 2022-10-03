@@ -18,6 +18,7 @@ export var speed_y = 1.0
 var closed = false
 var actuating = false
 
+const SPEED_SCALE = 140
 const VT_OFFSET = -10
 
 # Called when the node enters the scene tree for the first time.
@@ -41,29 +42,29 @@ func UpdateGraphics():
 	$VerticalTrack.scale.y = y
 	$VerticalTrack.position.x = x + VT_OFFSET
 
-func MoveUp():
-	var new_y = $Claw_body.position.y - speed_y
+func MoveUp(delta):
+	var new_y = $Claw_body.position.y - speed_y * delta * SPEED_SCALE
 	if new_y < min_y:
 		new_y = min_y
 	$Claw_body.position.y = new_y
 	UpdateGraphics()
 
-func MoveDown():
-	var new_y = $Claw_body.position.y + speed_y
+func MoveDown(delta):
+	var new_y = $Claw_body.position.y + speed_y * delta * SPEED_SCALE
 	if new_y > max_y:
 		new_y = max_y
 	$Claw_body.position.y = new_y
 	UpdateGraphics()
 
-func MoveLeft():
-	var new_x = $Claw_body.position.x - speed_x
+func MoveLeft(delta):
+	var new_x = $Claw_body.position.x - speed_x * delta * SPEED_SCALE
 	if new_x < min_x:
 		new_x = min_x
 	$Claw_body.position.x = new_x
 	UpdateGraphics()
 
-func MoveRight():
-	var new_x = $Claw_body.position.x + speed_x
+func MoveRight(delta):
+	var new_x = $Claw_body.position.x + speed_x * delta * SPEED_SCALE
 	if new_x > max_x:
 		new_x = max_x
 	$Claw_body.position.x = new_x

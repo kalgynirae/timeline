@@ -83,17 +83,17 @@ func _ready():
 			$ColorRect/Label.text = ""
 			$ColorRect/DownIcon.visible = true
 
-func _process(_delta):
+func _physics_process(delta):
 	if active:
 		match type:
 			"claw_up":
-				get_node("%Claw").MoveUp()
+				get_node("%Claw").MoveUp(delta)
 			"claw_down":
-				get_node("%Claw").MoveDown()
+				get_node("%Claw").MoveDown(delta)
 			"claw_left":
-				get_node("%Claw").MoveLeft()
+				get_node("%Claw").MoveLeft(delta)
 			"claw_right":
-				get_node("%Claw").MoveRight()
+				get_node("%Claw").MoveRight(delta)
 
 func resize():
 	var size_x = duration as float / _timeline.step_duration * _timeline.step_width
