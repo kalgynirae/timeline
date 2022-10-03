@@ -120,24 +120,31 @@ func lock_overlay(row):
 		Vector2(step_width*steps, -row*row_height),
 		Vector2(step_width*steps, -(row+1)*row_height),
 	]
-	overlay.color = Color("80000000")
+	overlay.color = Color("60000000")
 	overlay.z_index = 1
 	return overlay
 
-func spawn_line(color):
+func _spawn_line(color, dark: bool):
 	var line = Line.instance()
 	line.color = color
+	line.dark = dark
 	line.lineid = _next_lineid
 	_next_lineid += 1
 	line.connect("step_hit", self, "_on_step_hit")
 	add_child(line)
 	line.set_height(rows)
 
-func _on_step_hit(step, lineid):
+func spawn_line(color):
+	_spawn_line(color, false)
+
+func spawn_dark_line():
+	_spawn_line(Color("000000"), true)
+
+func _on_step_hit(step, lineid, dark):
 	for block in _blocks:
-		if block.start_step <= step and step < block.stop_step:
+		if block.start_step <= step and step < block.stop_step and block.dark == dark:
 			block.activate(lineid)
-		if block.stop_step <= step:
+		if block.stop_step <= step and block.dark == dark:
 			block.deactivate(lineid)
 
 func register_block(block, initial_placement: bool) -> bool:
@@ -177,3 +184,7 @@ func maybe_lock_block(block):
 		block.lock()
 	else:
 		block.unlock()
+
+func lock():
+	locked_rows = rows
+	generate()

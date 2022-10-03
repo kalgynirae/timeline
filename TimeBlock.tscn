@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://TimeBlock.gd" type="Script" id=1]
 [ext_resource path="res://sound/block_active.ogg" type="AudioStream" id=2]
@@ -18,6 +18,32 @@ damping = 26.35
 scale = 3.0
 scale_random = 1.0
 color = Color( 1, 1, 1, 0.501961 )
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0, 0.73545, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.807843, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+lifetime_randomness = 0.4
+emission_shape = 2
+emission_box_extents = Vector3( 25, 20, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 25.0
+initial_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 12.0
+angle_random = 1.0
+scale = 6.0
+scale_random = 0.8
+color = Color( 0, 0, 0, 1 )
+color_ramp = SubResource( 7 )
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -50,8 +76,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.313726 ), Color( 1, 1, 1, 0.627451 ), Color( 1, 1, 1, 0.313726 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "disabled"
+[sub_resource type="Animation" id=9]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:self_modulate")
@@ -90,10 +115,18 @@ margin_top = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
 
+[node name="DarkParticles" type="Particles2D" parent="."]
+position = Vector2( 0, -130 )
+emitting = false
+amount = 10
+randomness = 0.3
+local_coords = false
+process_material = SubResource( 8 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 4 )
 anims/blink = SubResource( 5 )
-anims/disabled = SubResource( 6 )
+anims/disabled = SubResource( 9 )
 
 [node name="ActiveSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )

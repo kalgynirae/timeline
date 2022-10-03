@@ -14,6 +14,13 @@ rows = 3
 locked_rows = 2
 
 [node name="TimeBlock" parent="Timeline" instance=ExtResource( 1 )]
-position = Vector2( 975, -50 )
+position = Vector2( 950, -50 )
 type = "spawn_line"
-duration = 250
+duration = 500
+dark = true
+
+[node name="TimeBlock2" parent="Timeline" instance=ExtResource( 1 )]
+position = Vector2( 950, -100 )
+type = "lock"
+duration = 500
+dark = true

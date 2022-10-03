@@ -1,5 +1,6 @@
 extends Node2D
 
+var _current_level
 var _popup_shown = false
 
 var Toast = preload("res://Toast.tscn")
@@ -16,6 +17,8 @@ func _input(event):
 			var coro = show_popup("Level name")
 			var name = yield(coro, "completed")
 			load_level(name)
+	elif Input.is_action_pressed("restart_level"):
+		load_level(_current_level)
 	elif Input.is_action_pressed("quit"):
 		get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
 
@@ -41,3 +44,4 @@ func load_level(name):
 	var level = new_packed.instance()
 	$CurrentLevel.add_child(level)
 	level.start(Time.get_ticks_msec() + 500)
+	_current_level = name

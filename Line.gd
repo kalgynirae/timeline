@@ -1,8 +1,9 @@
 extends Node2D
 
-signal step_hit(step, lineid)
+signal step_hit(step, lineid, dark)
 
 var color
+var dark = false
 var lineid
 var start_time
 
@@ -24,6 +25,8 @@ func _enter_tree():
 
 func _ready():
 	modulate = color
+	if dark:
+		$DarkParticles.emitting = true
 	$AnimationPlayer.play("show")
 	$SpawnSound.play(0.05)
 
@@ -41,7 +44,7 @@ func _process(_delta):
 		position.x = width * min(elapsed as float / duration, 1.0)
 
 		if elapsed > _next_step_duration:
-			emit_signal("step_hit", _next_step, lineid)
+			emit_signal("step_hit", _next_step, lineid, dark)
 			_next_step += 1
 
 	if elapsed >= duration and _destroy_after_duration:
@@ -50,7 +53,7 @@ func _process(_delta):
 func destroy():
 	$AnimationPlayer.play("hide")
 	yield($AnimationPlayer, "animation_finished")
-	emit_signal("step_hit", 1000, lineid)
+	emit_signal("step_hit", 1000, lineid, dark)
 	queue_free()
 
 func set_height(rows: int):
@@ -59,3 +62,6 @@ func set_height(rows: int):
 	$Particles.process_material.emission_box_extents.y = rows * _timeline.row_height / 2
 	$Particles.position.y = -rows * _timeline.row_height / 2
 	$Particles.amount = 6 * rows
+	$DarkParticles.process_material.emission_box_extents.y = rows * _timeline.row_height / 2
+	$DarkParticles.position.y = -rows * _timeline.row_height / 2
+	$DarkParticles.amount = 3 * rows

@@ -2,10 +2,12 @@ extends Node2D
 
 export var type: String
 export var duration: int
+export var dark: bool
 
 const COLORS = {
 	"foo": Color("d04040"),
-	"spawn_line": Color("20f020"),
+	"spawn_line": Color("c0c0c0"),
+	"lock": Color("c0c0c0"),
 	"claw_up": Color("3080f0"),
 	"claw_down": Color("5080f0"),
 	"claw_left": Color("7080f0"),
@@ -53,6 +55,9 @@ func _ready():
 	$Particles.process_material = $Particles.process_material.duplicate()
 	$Particles.process_material.color = COLORS.get(type, Color("c0c0c0")).lightened(0.3)
 	$Particles.process_material.color.a = 0.75
+	$DarkParticles.process_material = $DarkParticles.process_material.duplicate()
+	if dark:
+		$DarkParticles.emitting = true
 
 func _process(delta):
 	if active:
@@ -74,6 +79,9 @@ func resize():
 	$Particles.amount = $ColorRect.rect_size.x
 	$Particles.position = $ColorRect.rect_size / 2
 	$Particles.process_material.emission_box_extents.x = max($ColorRect.rect_size.x / 2 - 5, 5)
+	$DarkParticles.amount = $ColorRect.rect_size.x / 4
+	$DarkParticles.position = $ColorRect.rect_size / 2
+	$DarkParticles.process_material.emission_box_extents.x = max($ColorRect.rect_size.x / 2 - 5, 5)
 
 func activate(lineid):
 	if _activated_by.empty():
@@ -85,6 +93,8 @@ func activate(lineid):
 		match type:
 			"foo":
 				print("foo")
+			"lock":
+				_timeline.lock()
 			"spawn_line":
 				_timeline.spawn_line(Color("00ff00"))
 			"claw_open":
