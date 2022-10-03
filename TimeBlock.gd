@@ -19,7 +19,7 @@ const COLORS = {
 	"claw_close": Color("e91e63"),
 	"tf_left": Color("37d67a"),
 	"tf_right": Color("e91e63"),
-	"tf_jump": Color("9080f0")
+	"tf_jump": Color("77D900")
 }
 
 var active = false
@@ -120,6 +120,8 @@ func activate(lineid):
 				get_node("%Timefred").StartMoveLeft()
 			"tf_right":
 				get_node("%Timefred").StartMoveRight()
+			"tf_jump":
+				get_node("%Timefred").Jump()
 	_activated_by[lineid] = true
 
 func deactivate(lineid):

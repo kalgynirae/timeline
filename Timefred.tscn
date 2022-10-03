@@ -4,6 +4,7 @@
 [ext_resource path="res://Timefred.gd" type="Script" id=2]
 
 [node name="Timefred" type="KinematicBody2D"]
+collision_mask = 17
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

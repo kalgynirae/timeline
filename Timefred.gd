@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
-const GRAVITY = 200.0
+const GRAVITY = 300.0
+const H_SPEED = 200.0
+const JUMP_SPEED = 175
 var velocity = Vector2()
 
 var movingLeft = false
@@ -24,13 +26,13 @@ func _physics_process(delta):
 	velocity.y += delta * GRAVITY
 	var velocity_adj = velocity
 	if movingLeft:
-		velocity_adj.x -= 100
+		velocity_adj.x -= H_SPEED
 	if movingRight:
-		velocity_adj.x += 100
-	if velocity_adj.x > 100:
-		velocity_adj.x = 100
-	if velocity_adj.x < -100:
-		velocity_adj.x = -100
+		velocity_adj.x += H_SPEED
+	if velocity_adj.x > H_SPEED:
+		velocity_adj.x = H_SPEED
+	if velocity_adj.x < -H_SPEED:
+		velocity_adj.x = -H_SPEED
 	
 	var motion = velocity_adj * delta
 	var collision = move_and_collide(motion, false, true, true)
@@ -39,8 +41,8 @@ func _physics_process(delta):
 		var angle = collision.get_angle()
 		var col_dir = Vector2(-sin(angle), cos(angle)).normalized()
 #		print(col_dir)
-		velocity_adj -= velocity_adj.dot(col_dir) * col_dir
-		if col_dir.y > 0:
+		velocity_adj -= velocity_adj.dot(col_dir) * col_dir * 1.0
+		if col_dir.y > 0.8:
 			velocity.y = 0
 #		print(velocity)
 		motion = velocity_adj * delta
@@ -53,7 +55,7 @@ func _input(event):
 
 func Jump():
 	if move_and_collide(Vector2(0,2), false, true, true):
-		velocity.y = -150
+		velocity.y = -JUMP_SPEED
 
 func StartMoveLeft():
 	movingLeft = true
