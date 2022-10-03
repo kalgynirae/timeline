@@ -73,13 +73,13 @@ func _process(delta):
 	if active:
 		match type:
 			"claw_up":
-				get_node("/root/Game/CurrentLevel/TestC/Claw").MoveUp()
+				get_node("%Claw").MoveUp()
 			"claw_down":
-				get_node("/root/Game/CurrentLevel/TestC/Claw").MoveDown()
+				get_node("%Claw").MoveDown()
 			"claw_left":
-				get_node("/root/Game/CurrentLevel/TestC/Claw").MoveLeft()
+				get_node("%Claw").MoveLeft()
 			"claw_right":
-				get_node("/root/Game/CurrentLevel/TestC/Claw").MoveRight()
+				get_node("%Claw").MoveRight()
 
 func resize():
 	var size_x = duration as float / _timeline.step_duration * _timeline.step_width
@@ -110,11 +110,13 @@ func activate(lineid):
 			"spawn_line":
 				_timeline.spawn_line(Color("00ff00"))
 			"claw_open":
-				get_node("/root/Game/CurrentLevel/TestC/Claw").Open()
+				get_node("%Claw").Open()
 			"claw_close":
-				get_node("/root/Game/CurrentLevel/TestC/Claw").Close()
+				get_node("%Claw").Close()
 			"tf_left":
 				get_node("%Timefred").StartMoveLeft()
+			"tf_right":
+				get_node("%Timefred").StartMoveRight()
 	_activated_by[lineid] = true
 
 func deactivate(lineid):
@@ -123,6 +125,11 @@ func deactivate(lineid):
 		active = false
 		$ColorRect.modulate = Color("bbbbbb")
 		$Particles.emitting = false
+		match type:
+			"tf_left":
+				get_node("%Timefred").StopMoveLeft()
+			"tf_right":
+				get_node("%Timefred").StopMoveRight()
 		var tween = create_tween()
 		tween.tween_property($ActiveSound, "volume_db", -20.0, 0.4)
 		yield(tween, "finished")

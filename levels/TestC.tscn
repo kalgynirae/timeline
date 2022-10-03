@@ -13,6 +13,7 @@
 script = ExtResource( 2 )
 
 [node name="Claw" parent="." instance=ExtResource( 1 )]
+unique_name_in_owner = true
 start_x = 300
 
 [node name="Timeline" parent="." instance=ExtResource( 3 )]
@@ -66,7 +67,7 @@ duration = 1000
 
 [node name="Floor" parent="." instance=ExtResource( 6 )]
 position = Vector2( 0, 352 )
-scale = Vector2( 600, 80 )
+scale = Vector2( 1000, 80 )
 
 [node name="Block_obstacle" parent="." instance=ExtResource( 5 )]
 position = Vector2( 104, 275 )
