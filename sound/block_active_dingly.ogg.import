@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/block_active_dingly.ogg-9d414514170c6475f807674318e94e83.oggstr"
+
+[deps]
+
+source_file="res://sound/block_active_dingly.ogg"
+dest_files=[ "res://.import/block_active_dingly.ogg-9d414514170c6475f807674318e94e83.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

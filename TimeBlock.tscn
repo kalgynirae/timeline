@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://TimeBlock.gd" type="Script" id=1]
 [ext_resource path="res://sound/block_active.ogg" type="AudioStream" id=2]
 [ext_resource path="res://LockIcon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://LineIcon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sound/block_active_dingly.ogg" type="AudioStream" id=5]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -142,4 +143,8 @@ anims/disabled = SubResource( 9 )
 
 [node name="ActiveSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+volume_db = -9.0
+
+[node name="ActiveSoundDingly" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 volume_db = -9.0

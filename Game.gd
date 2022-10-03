@@ -1,12 +1,15 @@
 extends Node2D
 
+signal load_level(name)
+
 var _current_level
+var _next_level = "Title"
 var _popup_shown = false
 
 var Toast = preload("res://Toast.tscn")
 
 func _ready():
-	load_level("TestC")
+	connect("load_level", self, "load_level_soon")
 
 func _input(event):
 	if event is InputEventKey and event.pressed and event.scancode == KEY_ENTER:
@@ -29,6 +32,14 @@ func show_popup(label):
 	$InputPanel.popup_centered()
 	yield($InputPanel, "popup_hide")
 	return $InputPanel/HBoxContainer/LineEdit.text
+
+func _process(_delta):
+	if _next_level != null:
+		load_level(_next_level)
+		_next_level = null
+
+func load_level_soon(name):
+	_next_level = name
 
 func load_level(name):
 	print("load_level(", name, ")")

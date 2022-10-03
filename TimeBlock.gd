@@ -3,8 +3,10 @@ extends Node2D
 export var type: String
 export var duration: int
 export var dark: bool
+export var dingly: bool
 
 const COLORS = {
+	"_default": Color("808080"),
 	"start": Color("00c000"),
 	"quit": Color("c00000"),
 	"spawn_line": Color("404040"),
@@ -53,9 +55,9 @@ func _ready():
 		_audio_volume = $ActiveSound.volume_db
 	resize()
 	$ColorRect/Label.text = type
-	$ColorRect.color = COLORS.get(type, Color("c0c0c0"))
+	$ColorRect.color = COLORS.get(type, COLORS["_default"])
 	$Particles.process_material = $Particles.process_material.duplicate()
-	$Particles.process_material.color = COLORS.get(type, Color("c0c0c0")).lightened(0.3)
+	$Particles.process_material.color = COLORS.get(type, COLORS["_default"]).lightened(0.3)
 	$Particles.process_material.color.a = 0.75
 	$DarkParticles.process_material = $DarkParticles.process_material.duplicate()
 	if dark:
@@ -100,11 +102,12 @@ func activate(lineid):
 		active = true
 		$ColorRect.modulate = Color("ffffff")
 		$Particles.emitting = true
-		$ActiveSound.volume_db = -9.0
-		$ActiveSound.play()
+		var sound = $ActiveSoundDingly if dingly else $ActiveSound
+		sound.volume_db = -9.0
+		sound.play()
 		match type:
-			"foo":
-				print("foo")
+			"show_devs":
+				get_node("%DevsText").show()
 			"lock":
 				_timeline.lock()
 			"spawn_line":
@@ -126,15 +129,21 @@ func deactivate(lineid):
 		$ColorRect.modulate = Color("bbbbbb")
 		$Particles.emitting = false
 		match type:
+			"quit":
+				get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
+			"start":
+				get_node("/root/Game").emit_signal("load_level", "Tutorial")
 			"tf_left":
 				get_node("%Timefred").StopMoveLeft()
 			"tf_right":
 				get_node("%Timefred").StopMoveRight()
+
+		var sound = $ActiveSoundDingly if dingly else $ActiveSound
 		var tween = create_tween()
-		tween.tween_property($ActiveSound, "volume_db", -20.0, 0.4)
+		tween.tween_property(sound, "volume_db", -20.0, 0.4)
 		yield(tween, "finished")
-		$ActiveSound.stop()
-		$ActiveSound.volume_db = _audio_volume
+		sound.stop()
+		sound.volume_db = _audio_volume
 
 func deactivate_all():
 	_activated_by.clear()

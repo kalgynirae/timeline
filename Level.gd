@@ -13,5 +13,7 @@ extends Node
 #func _process(delta):
 #	pass
 
+func _ready():
+	var effect = AudioServer.get_bus_effect_instance(1, 0)
 func start(_start_time: int):
 	pass

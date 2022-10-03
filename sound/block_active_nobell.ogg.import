@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/block_active_nobell.ogg-e6f27413b0f982a7617a4a7c77e7fe09.oggstr"
+
+[deps]
+
+source_file="res://sound/block_active_nobell.ogg"
+dest_files=[ "res://.import/block_active_nobell.ogg-e6f27413b0f982a7617a4a7c77e7fe09.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
