@@ -26,8 +26,8 @@
      showgrid="false"
      showguides="true"
      inkscape:zoom="1.2938724"
-     inkscape:cx="438.2194"
-     inkscape:cy="1110.6195"
+     inkscape:cx="384.50469"
+     inkscape:cy="1110.6196"
      inkscape:window-width="2560"
      inkscape:window-height="1387"
      inkscape:window-x="2552"
@@ -275,5 +275,37 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:52.3168px;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:4.35972"
          x="-7.0095601"
          y="289.05911">Thymefred</tspan></text>
+    <g
+       id="g332"
+       inkscape:export-filename="clock.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <path
+         id="rect911"
+         style="fill:#000000;stroke-width:0.127668;-inkscape-stroke:none;stop-color:#000000"
+         d="M 49.691024 220.64441 L 49.691024 247.43244 L 110.83354 247.43244 L 110.83354 220.64441 L 49.691024 220.64441 z M 53.064978 224.42713 L 107.45907 224.42713 L 107.45907 243.64921 L 53.064978 243.64921 L 53.064978 224.42713 z " />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.9051px;line-height:normal;font-family:'16 Segments';-inkscape-font-specification:'16 Segments, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-decoration-color:#000000;fill:#000000;stroke-width:0.164986;-inkscape-stroke:none;stop-color:#000000"
+         x="47.934059"
+         y="241.8788"
+         id="text1072"><tspan
+           sodipodi:role="line"
+           id="tspan1070"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.9051px;font-family:'16 Segments';-inkscape-font-specification:'16 Segments, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:0.164986"
+           x="47.934059"
+           y="241.8788">12:00</tspan></text>
+    </g>
+    <g
+       id="g332-4"
+       transform="translate(74.536278,0.10206422)"
+       inkscape:export-filename="clock_blank.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <path
+         id="rect911-7"
+         style="fill:#000000;stroke-width:0.127668;-inkscape-stroke:none;stop-color:#000000"
+         d="m 49.691024,220.64441 v 26.78803 h 61.142516 v -26.78803 z m 3.373954,3.78272 h 54.394092 v 19.22208 H 53.064978 Z" />
+    </g>
   </g>
 </svg>
