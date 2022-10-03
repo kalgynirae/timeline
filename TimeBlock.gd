@@ -38,7 +38,6 @@ func _enter_tree():
 	_timeline = get_node("%Timeline")
 	if not _timeline.register_block(self, true):
 		$AnimationPlayer.play("disabled")
-	deactivate_all()
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -124,29 +123,30 @@ func activate(lineid):
 	_activated_by[lineid] = true
 
 func deactivate(lineid):
+	print("deactivate by ", lineid)
 	_activated_by.erase(lineid)
-	$ColorRect.modulate = Color("d0d0d0")
-	$Particles.emitting = false
-
 	if _activated_by.empty() and active:
 		active = false
+		$ColorRect.modulate = Color("d0d0d0")
+		$Particles.emitting = false
+
 		match type:
 			"quit":
 				get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
 			"start":
-				get_node("/root/Game").emit_signal("load_level", "Tutorial")
+				get_node("/root/Game").load_level_soon("Tutorial")
 			"tf_left":
 				get_node("%Timefred").StopMoveLeft()
 			"tf_right":
 				get_node("%Timefred").StopMoveRight()
 
-	var sound = $ActiveSoundDingly if dingly else $ActiveSound
-	if sound.playing:
-		var tween = create_tween()
-		tween.tween_property(sound, "volume_db", -20.0, 0.4)
-		yield(tween, "finished")
-		sound.stop()
-		sound.volume_db = _audio_volume
+		var sound = $ActiveSoundDingly if dingly else $ActiveSound
+		if sound.playing:
+			var tween = create_tween()
+			tween.tween_property(sound, "volume_db", -20.0, 0.4)
+			yield(tween, "finished")
+			sound.stop()
+			sound.volume_db = _audio_volume
 
 func deactivate_all():
 	_activated_by.clear()

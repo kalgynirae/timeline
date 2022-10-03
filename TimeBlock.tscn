@@ -106,6 +106,7 @@ local_coords = false
 process_material = SubResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 0.815686, 0.815686, 0.815686, 1 )
 margin_right = 50.0
 margin_bottom = 50.0
 color = Color( 0.501961, 0.501961, 0.501961, 1 )

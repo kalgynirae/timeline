@@ -1,15 +1,10 @@
 extends Node2D
 
-signal load_level(name)
-
 var _current_level
 var _next_level = "Title"
 var _popup_shown = false
 
 var Toast = preload("res://Toast.tscn")
-
-func _ready():
-	connect("load_level", self, "load_level_soon")
 
 func _input(event):
 	if event is InputEventKey and event.pressed and event.scancode == KEY_ENTER:
