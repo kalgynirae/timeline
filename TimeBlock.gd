@@ -71,7 +71,7 @@ func _ready():
 			$ColorRect/Label.text = ""
 			$ColorRect/LineIcon.visible = true
 
-func _process(delta):
+func _process(_delta):
 	if active:
 		match type:
 			"claw_up":
@@ -123,7 +123,6 @@ func activate(lineid):
 	_activated_by[lineid] = true
 
 func deactivate(lineid):
-	print("deactivate by ", lineid)
 	_activated_by.erase(lineid)
 	if _activated_by.empty() and active:
 		active = false
