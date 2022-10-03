@@ -16,7 +16,10 @@ var Line = preload("res://Line.tscn")
 var number_theme = load("res://TimelineNumbers.tres")
 
 var _blocks = []
+var _lineids = {}
 var _next_lineid = 1
+var _show_restart_after
+var _showed_restart = false
 
 func _ready():
 	generate()
@@ -44,8 +47,13 @@ func _input(event):
 	elif Input.is_action_pressed("spawn_line"):
 		spawn_line(Color("00ff00"))
 
-#func _process(delta):
-#	pass
+func _process(_delta):
+	if not _lineids.empty() and _show_restart_after != null:
+		_show_restart_after = null
+	if _lineids.empty() and _show_restart_after == null:
+		_show_restart_after = Time.get_ticks_msec() + 500
+	if _show_restart_after != null and Time.get_ticks_msec() >= _show_restart_after:
+		show_restart()
 
 func clear():
 	for node in $verticals.get_children():
@@ -58,10 +66,12 @@ func clear():
 		node.queue_free()
 	for node in $locks.get_children():
 		node.queue_free()
+	$Restart.visible = false
 
 func generate():
 	clear()
 	var height = rows * row_height
+	var width = steps * step_width
 	for i in range(11):
 		var line
 		if i == 0 or i == 10:
@@ -78,6 +88,7 @@ func generate():
 	for row in range(locked_rows):
 		$locks.add_child(lock_icon(row))
 		$locks.add_child(lock_overlay(row))
+	$Restart.position = Vector2(width / 2, -height - 35)
 	for block in _blocks:
 		resize_block(block)
 		maybe_lock_block(block)
@@ -131,8 +142,10 @@ func _spawn_line(color, dark: bool):
 	line.lineid = _next_lineid
 	_next_lineid += 1
 	line.connect("step_hit", self, "_on_step_hit")
+	line.connect("vanish", self, "_on_line_vanish")
 	add_child(line)
 	line.set_height(rows)
+	_lineids[line.lineid] = true
 
 func spawn_line(color):
 	_spawn_line(color, false)
@@ -146,6 +159,12 @@ func _on_step_hit(step, lineid, dark):
 			block.activate(lineid)
 		if block.stop_step <= step and block.dark == dark:
 			block.deactivate(lineid)
+
+func _on_line_vanish(lineid, dark):
+	for block in _blocks:
+		if block.dark == dark:
+			block.deactivate(lineid)
+	_lineids.erase(lineid)
 
 func register_block(block, initial_placement: bool) -> bool:
 	if snap_block(block, initial_placement):
@@ -189,3 +208,12 @@ func maybe_lock_block(block):
 func lock():
 	locked_rows = rows
 	generate()
+
+func show_restart():
+	if _showed_restart:
+		return
+	_showed_restart = true
+	$Restart.modulate = Color("00ffffff")
+	$Restart.visible = true
+	var tween = create_tween()
+	tween.tween_property($Restart, "modulate", Color("ffffffff"), 1.0).set_trans(Tween.TRANS_QUAD)

@@ -1,6 +1,7 @@
 extends Node2D
 
 signal step_hit(step, lineid, dark)
+signal vanish(lineid, dark)
 
 var color
 var dark = false
@@ -8,6 +9,7 @@ var lineid
 var start_time
 
 var _destroy_after_duration = true
+var _destroying = false
 var _started = false
 var _next_step
 var _timeline
@@ -53,9 +55,12 @@ func _process(_delta):
 		destroy()
 
 func destroy():
+	if _destroying:
+		return
+	_destroying = true
 	$AnimationPlayer.play("hide")
 	yield($AnimationPlayer, "animation_finished")
-	emit_signal("step_hit", 1000, lineid, dark)
+	emit_signal("vanish", lineid, dark)
 	queue_free()
 
 func set_height(rows: int):

@@ -26,7 +26,7 @@
      showgrid="false"
      showguides="true"
      inkscape:zoom="0.91490598"
-     inkscape:cx="475.45869"
+     inkscape:cx="417.52924"
      inkscape:cy="366.15784"
      inkscape:window-width="2560"
      inkscape:window-height="1387"
@@ -114,6 +114,20 @@
            style="stroke-width:0.127668"
            x="31.140265"
            y="62.10556">by kalgynirae and ictteuth</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.8552px;line-height:normal;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.127668;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+         x="53.128227"
+         y="81.675964"
+         id="text246"
+         inkscape:export-filename="restart.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan244"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.8552px;line-height:normal;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.127668;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+           x="53.128227"
+           y="81.675964">Type R to restart</tspan></text>
     </g>
   </g>
 </svg>
