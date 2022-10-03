@@ -9,8 +9,8 @@ const COLORS = {
 	"_default": Color("808080"),
 	"start": Color("00c000"),
 	"quit": Color("c00000"),
-	"spawn_line": Color("404040"),
-	"lock": Color("404040"),
+	"spawn_line": Color("606060"),
+	"lock": Color("606060"),
 	"claw_up": Color("3080f0"),
 	"claw_down": Color("5080f0"),
 	"claw_left": Color("7080f0"),
@@ -38,6 +38,7 @@ func _enter_tree():
 	_timeline = get_node("%Timeline")
 	if not _timeline.register_block(self, true):
 		$AnimationPlayer.play("disabled")
+	deactivate_all()
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -124,10 +125,11 @@ func activate(lineid):
 
 func deactivate(lineid):
 	_activated_by.erase(lineid)
+	$ColorRect.modulate = Color("d0d0d0")
+	$Particles.emitting = false
+
 	if _activated_by.empty() and active:
 		active = false
-		$ColorRect.modulate = Color("bbbbbb")
-		$Particles.emitting = false
 		match type:
 			"quit":
 				get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
@@ -138,7 +140,8 @@ func deactivate(lineid):
 			"tf_right":
 				get_node("%Timefred").StopMoveRight()
 
-		var sound = $ActiveSoundDingly if dingly else $ActiveSound
+	var sound = $ActiveSoundDingly if dingly else $ActiveSound
+	if sound.playing:
 		var tween = create_tween()
 		tween.tween_property(sound, "volume_db", -20.0, 0.4)
 		yield(tween, "finished")
