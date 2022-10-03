@@ -40,7 +40,7 @@ func UpdateGraphics():
 
 	$VerticalTrack.scale.y = y
 	$VerticalTrack.position.x = x + VT_OFFSET
-	
+
 func MoveUp():
 	var new_y = $Claw_body.position.y - speed_y
 	if new_y < min_y:
@@ -76,7 +76,7 @@ func Close():
 		yield($Claw_body/AnimationPlayer, "animation_finished")
 		actuating = false
 		closed = true
-	
+
 func Open():
 	if closed and not actuating:
 		actuating = true

@@ -20,6 +20,7 @@ var start_step
 var stop_step
 
 var _activated_by = {}
+var _audio_volume
 var _grabbed = false
 var _grab_offset
 var _locked = false
@@ -41,9 +42,12 @@ func _input(event):
 		_timeline.snap_block(self, false)
 
 func _ready():
+	if _audio_volume == null:
+		_audio_volume = $ActiveSound.volume_db
 	resize()
 	$ColorRect/Label.text = type
 	$ColorRect.color = COLORS.get(type, Color("c0c0c0"))
+	$Particles.process_material = $Particles.process_material.duplicate()
 	$Particles.process_material.color = COLORS.get(type, Color("c0c0c0")).lightened(0.3)
 	$Particles.process_material.color.a = 0.75
 
@@ -73,6 +77,7 @@ func activate(lineid):
 		active = true
 		$ColorRect.modulate = Color("ffffff")
 		$Particles.emitting = true
+		$ActiveSound.volume_db = -9.0
 		$ActiveSound.play()
 		match type:
 			"foo":
@@ -87,11 +92,17 @@ func activate(lineid):
 
 func deactivate(lineid):
 	_activated_by.erase(lineid)
-	if _activated_by.empty():
+	if _activated_by.empty() and active:
 		active = false
 		$ColorRect.modulate = Color("bbbbbb")
 		$Particles.emitting = false
+		var tween = create_tween()
+		tween.tween_property($ActiveSound, "volume_db", -20.0, 0.4)
+		yield(tween, "finished")
 		$ActiveSound.stop()
+		$ActiveSound.volume_db = _audio_volume
+		print("Set audio volume to ", _audio_volume)
+
 
 func deactivate_all():
 	_activated_by.clear()
