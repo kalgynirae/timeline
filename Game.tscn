@@ -33,7 +33,7 @@ margin_right = 472.0
 margin_bottom = 42.0
 size_flags_horizontal = 3
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 volume_db = -15.0
 autoplay = true

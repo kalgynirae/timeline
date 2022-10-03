@@ -42,7 +42,7 @@ func _input(event):
 	elif Input.is_action_pressed("pause"):
 		print("not implemented yet!")
 	elif Input.is_action_pressed("spawn_line"):
-		spawn_line(Time.get_ticks_msec(), Color("00ff00"))
+		spawn_line(Color("00ff00"))
 
 #func _process(delta):
 #	pass
@@ -124,12 +124,11 @@ func lock_overlay(row):
 	overlay.z_index = 1
 	return overlay
 
-func spawn_line(start_time, color):
+func spawn_line(color):
 	var line = Line.instance()
 	line.color = color
 	line.lineid = _next_lineid
 	_next_lineid += 1
-	line.start_time = start_time
 	line.connect("step_hit", self, "_on_step_hit")
 	add_child(line)
 	line.set_height(rows)

@@ -15,6 +15,13 @@ func _enter_tree():
 	_next_step = 0
 	_timeline = get_node("..")
 
+	var music = get_node("/root/Game/MusicPlayer")
+	var pos = music.get_playback_position()
+	var offset = (1000 * (1 - (pos - floor(pos)))) as int % 500
+	if offset < 100:
+		offset += 500
+	start_time = Time.get_ticks_msec() + offset - 10
+
 func _ready():
 	modulate = color
 	$AnimationPlayer.play("show")

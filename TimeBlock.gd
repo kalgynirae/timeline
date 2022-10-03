@@ -86,7 +86,7 @@ func activate(lineid):
 			"foo":
 				print("foo")
 			"spawn_line":
-				_timeline.spawn_line(Time.get_ticks_msec() + duration, Color("00ff00"))
+				_timeline.spawn_line(Color("00ff00"))
 			"claw_open":
 				get_node("/root/Game/CurrentLevel/TestC/Claw").Open()
 			"claw_close":
@@ -106,8 +106,6 @@ func deactivate(lineid):
 		yield(tween, "finished")
 		$ActiveSound.stop()
 		$ActiveSound.volume_db = _audio_volume
-		print("Set audio volume to ", _audio_volume)
-
 
 func deactivate_all():
 	_activated_by.clear()
@@ -116,7 +114,6 @@ func deactivate_all():
 func grab(mouse_position):
 	_grabbed = true
 	_grab_offset = mouse_position - global_position
-	print("_grab_offset=", _grab_offset)
 	_timeline.unregister_block(self)
 	$AnimationPlayer.play("blink")
 
