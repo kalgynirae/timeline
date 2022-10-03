@@ -106,6 +106,10 @@ func activate(lineid):
 		sound.volume_db = -9.0
 		sound.play()
 		match type:
+			"quit":
+				get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
+			"start":
+				get_node("/root/Game").load_level_soon("Tutorial")
 			"show_devs":
 				get_node("%DevsText").show()
 			"lock":
@@ -132,10 +136,8 @@ func deactivate(lineid):
 		$Particles.emitting = false
 
 		match type:
-			"quit":
-				get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
-			"start":
-				get_node("/root/Game").load_level_soon("Tutorial")
+			"show_devs":
+				get_node("%DevsText").hide()
 			"tf_left":
 				get_node("%Timefred").StopMoveLeft()
 			"tf_right":

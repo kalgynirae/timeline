@@ -22,7 +22,6 @@ rows = 2
 position = Vector2( 760, -230 )
 type = "quit"
 duration = 500
-dingly = true
 
 [node name="TimeBlock2" parent="Timeline" instance=ExtResource( 2 )]
 position = Vector2( 950, -50 )
@@ -33,12 +32,11 @@ duration = 500
 position = Vector2( 680, -230 )
 type = "start"
 duration = 500
-dingly = true
 
 [node name="TimeBlock4" parent="Timeline" instance=ExtResource( 2 )]
 position = Vector2( 350, -100 )
 type = "show_devs"
-duration = 1500
+duration = 5500
 dingly = true
 
 [node name="TitleText" type="Sprite" parent="."]
