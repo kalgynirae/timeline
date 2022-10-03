@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Claw.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/TestC.gd" type="Script" id=2]
@@ -7,12 +7,12 @@
 [ext_resource path="res://Block_obstacle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Floor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://PhysicsArea.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Timefred.tscn" type="PackedScene" id=8]
 
 [node name="TestC" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Claw" parent="." instance=ExtResource( 1 )]
-scale = Vector2( 0.3, 0.3 )
 start_x = 300
 
 [node name="Timeline" parent="." instance=ExtResource( 3 )]
@@ -54,6 +54,16 @@ position = Vector2( 650, -200 )
 type = "claw_open"
 duration = 250
 
+[node name="TimeBlock8" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 200, -251 )
+type = "tf_left"
+duration = 1000
+
+[node name="TimeBlock9" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 403, -251 )
+type = "tf_right"
+duration = 1000
+
 [node name="Floor" parent="." instance=ExtResource( 6 )]
 position = Vector2( 0, 352 )
 scale = Vector2( 600, 80 )
@@ -63,3 +73,8 @@ position = Vector2( 104, 275 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="PhysicsArea" parent="." instance=ExtResource( 7 )]
+position = Vector2( 738, -494 )
+
+[node name="Timefred" parent="." instance=ExtResource( 8 )]
+unique_name_in_owner = true
+position = Vector2( 321, 265 )

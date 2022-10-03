@@ -18,7 +18,7 @@ export var speed_y = 1.0
 var closed = false
 var actuating = false
 
-const VT_OFFSET = -15
+const VT_OFFSET = -10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

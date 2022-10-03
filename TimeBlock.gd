@@ -11,7 +11,10 @@ const COLORS = {
 	"claw_left": Color("7080f0"),
 	"claw_right": Color("9080f0"),
 	"claw_open": Color("37d67a"),
-	"claw_close": Color("e91e63")
+	"claw_close": Color("e91e63"),
+	"tf_left": Color("37d67a"),
+	"tf_right": Color("e91e63"),
+	"tf_jump": Color("9080f0")
 }
 
 var active = false
@@ -88,6 +91,8 @@ func activate(lineid):
 				get_node("/root/Game/CurrentLevel/TestC/Claw").Open()
 			"claw_close":
 				get_node("/root/Game/CurrentLevel/TestC/Claw").Close()
+			"tf_left":
+				get_node("%Timefred").StartMoveLeft()
 	_activated_by[lineid] = true
 
 func deactivate(lineid):
