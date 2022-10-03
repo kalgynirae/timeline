@@ -1,12 +1,12 @@
 extends KinematicBody2D
 
-const GRAVITY = 300.0
+const GRAVITY = 400.0
 const H_SPEED = 200.0
-const JUMP_SPEED = 175
+const JUMP_SPEED = 300
 var velocity = Vector2()
 
-var movingLeft = false
-var movingRight = false
+var movingLeft = 0
+var movingRight = 0
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -58,16 +58,16 @@ func Jump():
 		velocity.y = -JUMP_SPEED
 
 func StartMoveLeft():
-	movingLeft = true
+	movingLeft += 1
 	
 func StopMoveLeft():
-	movingLeft = false
+	movingLeft -= 1
 	
 func StartMoveRight():
-	movingRight = true
+	movingRight += 1
 	
 func StopMoveRight():
-	movingRight = false
+	movingRight -= 1
 	
 
 	

@@ -1,0 +1,111 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Goal.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/L2.gd" type="Script" id=2]
+[ext_resource path="res://Timeline.tscn" type="PackedScene" id=3]
+[ext_resource path="res://TimeBlock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Floor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Timefred.tscn" type="PackedScene" id=8]
+
+[node name="L2" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Timeline" parent="." instance=ExtResource( 3 )]
+unique_name_in_owner = true
+position = Vector2( 119, 650 )
+rows = 3
+
+[node name="tf_jump" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 83, -647 )
+type = "tf_jump"
+duration = 250
+
+[node name="tf_jump2" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 131, -647 )
+type = "tf_jump"
+duration = 250
+
+[node name="tf_jump3" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 180, -648 )
+type = "tf_jump"
+duration = 250
+
+[node name="tf_jump4" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 229, -649 )
+type = "tf_jump"
+duration = 250
+
+[node name="tf_left" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 511, -659 )
+type = "tf_left"
+duration = 1000
+
+[node name="tf_left2" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 656, -655 )
+type = "tf_left"
+duration = 2000
+
+[node name="tf_right" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 509, -603 )
+type = "tf_right"
+duration = 1000
+
+[node name="tf_right2" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 505, -430 )
+type = "tf_right"
+duration = 6000
+
+[node name="tf_right5" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 505, -489 )
+type = "tf_right"
+duration = 4000
+
+[node name="tf_right3" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 506, -545 )
+type = "tf_right"
+duration = 2000
+
+[node name="tf_right4" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 656, -596 )
+type = "tf_right"
+duration = 2000
+
+[node name="Floor" parent="." instance=ExtResource( 6 )]
+position = Vector2( -7, 350 )
+scale = Vector2( 1300, 80 )
+
+[node name="Left Wall" parent="." instance=ExtResource( 6 )]
+position = Vector2( -25, 0.999992 )
+scale = Vector2( 50, 400 )
+
+[node name="Right Wall" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1256, -12 )
+scale = Vector2( 50, 250 )
+
+[node name="Right Wall2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 730, -15 )
+scale = Vector2( 50, 250 )
+
+[node name="Floor2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 530, 233 )
+scale = Vector2( 250, 10 )
+
+[node name="Floor3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 25, 272 )
+scale = Vector2( 200, 80 )
+
+[node name="Floor4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 226, 191 )
+scale = Vector2( 200, 10 )
+
+[node name="Floor5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 429, 113 )
+scale = Vector2( 200, 10 )
+
+[node name="Timefred" parent="." instance=ExtResource( 8 )]
+unique_name_in_owner = true
+position = Vector2( 86, 256 )
+
+[node name="Goal" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1280, 149 )
+what_next = "L3"
