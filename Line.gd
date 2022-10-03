@@ -28,7 +28,8 @@ func _ready():
 	if dark:
 		$DarkParticles.emitting = true
 	$AnimationPlayer.play("show")
-	$SpawnSound.play(0.05)
+	if not dark:
+		$SpawnSound.play(0.05)
 
 func _process(_delta):
 	var elapsed = Time.get_ticks_msec() - start_time
@@ -39,8 +40,9 @@ func _process(_delta):
 	if elapsed > 0:
 		if not _started:
 			_started = true
-			$StartSound.play()
 			$Particles.emitting = true
+			if not dark:
+				$StartSound.play()
 		position.x = width * min(elapsed as float / duration, 1.0)
 
 		if elapsed > _next_step_duration:

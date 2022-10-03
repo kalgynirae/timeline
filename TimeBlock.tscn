@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://TimeBlock.gd" type="Script" id=1]
 [ext_resource path="res://sound/block_active.ogg" type="AudioStream" id=2]
+[ext_resource path="res://LockIcon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://LineIcon.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -112,8 +114,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
 margin_top = 5.0
-margin_right = -5.0
-margin_bottom = -5.0
+margin_right = 5.0
+margin_bottom = 19.0
+
+[node name="LockIcon" parent="ColorRect" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 24, 10 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="LineIcon" parent="ColorRect" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 24, 11 )
+scale = Vector2( 0.6, 0.6 )
 
 [node name="DarkParticles" type="Particles2D" parent="."]
 position = Vector2( 0, -130 )

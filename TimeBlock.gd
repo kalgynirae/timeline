@@ -6,8 +6,8 @@ export var dark: bool
 
 const COLORS = {
 	"foo": Color("d04040"),
-	"spawn_line": Color("c0c0c0"),
-	"lock": Color("c0c0c0"),
+	"spawn_line": Color("404040"),
+	"lock": Color("404040"),
 	"claw_up": Color("3080f0"),
 	"claw_down": Color("5080f0"),
 	"claw_left": Color("7080f0"),
@@ -59,6 +59,14 @@ func _ready():
 	if dark:
 		$DarkParticles.emitting = true
 
+	match type:
+		"lock":
+			$ColorRect/Label.text = ""
+			$ColorRect/LockIcon.visible = true
+		"spawn_line":
+			$ColorRect/Label.text = ""
+			$ColorRect/LineIcon.visible = true
+
 func _process(delta):
 	if active:
 		match type:
@@ -82,6 +90,8 @@ func resize():
 	$DarkParticles.amount = $ColorRect.rect_size.x / 4
 	$DarkParticles.position = $ColorRect.rect_size / 2
 	$DarkParticles.process_material.emission_box_extents.x = max($ColorRect.rect_size.x / 2 - 5, 5)
+	$ColorRect/LockIcon.position.x = $ColorRect.rect_size.x / 2
+	$ColorRect/LineIcon.position.x = $ColorRect.rect_size.x / 2
 
 func activate(lineid):
 	if _activated_by.empty():
