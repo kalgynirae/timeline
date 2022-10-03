@@ -39,11 +39,6 @@ func _physics_process(delta):
 		motion = velocity_adj * delta
 	move_and_collide(motion, false)
 
-func _input(event):
-	if Input.is_action_pressed("ui_up"):
-		Jump()
-
-
 func Jump():
 	if move_and_collide(Vector2(0,2), false, true, true):
 		velocity.y = -JUMP_SPEED
