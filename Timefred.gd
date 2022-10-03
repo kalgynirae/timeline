@@ -8,19 +8,10 @@ var velocity = Vector2()
 var movingLeft = 0
 var movingRight = 0
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _enter_tree():
+	if get_node("/root/Game").thymefred:
+		$Thymefred.visible = true
+		$Sprite.visible = false
 
 func _physics_process(delta):
 	velocity.y += delta * GRAVITY
@@ -33,7 +24,7 @@ func _physics_process(delta):
 		velocity_adj.x = H_SPEED
 	if velocity_adj.x < -H_SPEED:
 		velocity_adj.x = -H_SPEED
-	
+
 	var motion = velocity_adj * delta
 	var collision = move_and_collide(motion, false, true, true)
 	if not collision == null:
@@ -59,15 +50,13 @@ func Jump():
 
 func StartMoveLeft():
 	movingLeft += 1
-	
+
 func StopMoveLeft():
 	movingLeft -= 1
-	
+
 func StartMoveRight():
 	movingRight += 1
-	
+
 func StopMoveRight():
 	movingRight -= 1
-	
 
-	

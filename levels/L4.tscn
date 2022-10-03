@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://TimeBlock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Timeline.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/L4.gd" type="Script" id=3]
+[ext_resource path="res://Floor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Timefred.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Goal.tscn" type="PackedScene" id=6]
+
+[node name="L4" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Timeline" parent="." instance=ExtResource( 2 )]
+unique_name_in_owner = true
+position = Vector2( 130, 670 )
+rows = 2
+
+[node name="TimeBlock" parent="Timeline" instance=ExtResource( 1 )]
+position = Vector2( 950, -50 )
+type = "spawn_line"
+duration = 250
+dark = true
+
+[node name="TimeBlock2" parent="Timeline" instance=ExtResource( 1 )]
+position = Vector2( 975, -50 )
+type = "lock"
+duration = 250
+dark = true
+
+[node name="TimeBlock6" parent="Timeline" instance=ExtResource( 1 )]
+position = Vector2( 150, -100 )
+type = "spawn_line"
+duration = 250
+
+[node name="TimeBlock7" parent="Timeline" instance=ExtResource( 1 )]
+position = Vector2( 160, -590 )
+type = "tf_right"
+duration = 1000
+
+[node name="TimeBlock10" parent="Timeline" instance=ExtResource( 1 )]
+position = Vector2( 160, -510 )
+type = "tf_jump"
+duration = 500
+
+[node name="Floor" parent="." instance=ExtResource( 4 )]
+position = Vector2( -10, 300 )
+scale = Vector2( 600, 80 )
+
+[node name="Left Wall" parent="." instance=ExtResource( 4 )]
+position = Vector2( -25, 0.999992 )
+scale = Vector2( 50, 400 )
+
+[node name="Right Wall" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1250, -80 )
+scale = Vector2( 50, 250 )
+
+[node name="Floor2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 700, 300 )
+scale = Vector2( 600, 80 )
+
+[node name="Floor3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 800, 270 )
+scale = Vector2( 50, 80 )
+
+[node name="Floor4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 950, 270 )
+scale = Vector2( 50, 80 )
+
+[node name="Floor5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1100, 270 )
+scale = Vector2( 50, 80 )
+
+[node name="Timefred" parent="." instance=ExtResource( 5 )]
+unique_name_in_owner = true
+position = Vector2( 100, 300 )
+
+[node name="Goal" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1280, 149 )

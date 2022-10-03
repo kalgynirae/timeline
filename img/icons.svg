@@ -25,9 +25,9 @@
      inkscape:document-units="mm"
      showgrid="false"
      showguides="true"
-     inkscape:zoom="3.6596239"
-     inkscape:cx="499.23163"
-     inkscape:cy="459.61007"
+     inkscape:zoom="1.2938724"
+     inkscape:cx="438.2194"
+     inkscape:cy="1110.6195"
      inkscape:window-width="2560"
      inkscape:window-height="1387"
      inkscape:window-x="2552"
@@ -70,7 +70,7 @@
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:52.3168px;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:4.35972"
        x="8.736496"
-       y="47.117085"
+       y="52.408752"
        id="text242"
        inkscape:export-filename="title.png"
        inkscape:export-xdpi="96"
@@ -79,12 +79,12 @@
          id="tspan240"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:52.3168px;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:4.35972"
          x="8.736496"
-         y="47.117085">Timeline</tspan></text>
+         y="52.408752">Timefred</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.8552px;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:0.127668"
        x="31.140265"
-       y="62.10556"
+       y="67.397232"
        id="text471"
        inkscape:export-filename="devs.png"
        inkscape:export-xdpi="96"
@@ -93,12 +93,26 @@
          id="tspan469"
          style="stroke-width:0.127668"
          x="31.140265"
-         y="62.10556">by kalgynirae and ictteuth</tspan></text>
+         y="67.397232">by kalgynirae and ictteuth</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.8552px;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:0.127668"
+       x="53.98605"
+       y="12.800565"
+       id="text471-5"
+       inkscape:export-filename="devs.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan469-1"
+         style="stroke-width:0.127668"
+         x="53.98605"
+         y="12.800565">The Adventures of</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.8552px;line-height:normal;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.127668;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
        x="53.128227"
-       y="81.675964"
+       y="86.967636"
        id="text246"
        inkscape:export-filename="restart.png"
        inkscape:export-xdpi="96"
@@ -107,7 +121,7 @@
          id="tspan244"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.8552px;line-height:normal;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.127668;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
          x="53.128227"
-         y="81.675964">Type R to restart</tspan></text>
+         y="86.967636">Type R to restart</tspan></text>
     <g
        id="g595"
        transform="translate(-1.9288853,-0.14107021)">
@@ -131,7 +145,8 @@
        id="g644"
        inkscape:export-filename="left.png"
        inkscape:export-xdpi="145.02185"
-       inkscape:export-ydpi="145.02185">
+       inkscape:export-ydpi="145.02185"
+       transform="translate(57.257061,-20.244461)">
       <path
          style="fill:#000000;fill-opacity:1;stroke-width:0.350394"
          d="m 124.195,117.1335 -4.42826,4.42825 4.42826,4.42825 z"
@@ -146,7 +161,7 @@
     </g>
     <g
        id="g644-3"
-       transform="matrix(-1,0,0,1,268.01528,2e-5)"
+       transform="matrix(-1,0,0,1,325.27234,-20.244441)"
        inkscape:export-filename="right.png"
        inkscape:export-xdpi="145.02185"
        inkscape:export-ydpi="145.02185">
@@ -164,7 +179,7 @@
     </g>
     <g
        id="g644-3-8"
-       transform="matrix(0,1,1,0,12.18947,-18.008944)"
+       transform="matrix(0,1,1,0,69.975698,-36.665904)"
        inkscape:export-filename="up.png"
        inkscape:export-xdpi="145.02185"
        inkscape:export-ydpi="145.02185">
@@ -182,7 +197,7 @@
     </g>
     <g
        id="g644-3-8-4"
-       transform="rotate(-90,136.08984,123.32198)"
+       transform="rotate(-90,154.59614,84.571219)"
        inkscape:export-filename="down.png"
        inkscape:export-xdpi="145.02185"
        inkscape:export-ydpi="145.02185">
@@ -198,5 +213,67 @@
          x="124.16944"
          y="119.68636" />
     </g>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:13.8552px;line-height:1;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';text-decoration-color:#000000;fill:#000000;stroke-width:0.127668;-inkscape-stroke:none;stop-color:#000000"
+       x="10.019985"
+       y="130.87328"
+       id="text368"
+       inkscape:export-filename="text_schedule.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan366"
+         style="stroke-width:0.127668"
+         x="10.019985"
+         y="130.87328">Timefred was always on time.</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.127668"
+         x="10.019985"
+         y="144.72847"
+         id="tspan380">He did everything exactly according to schedule.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:13.8552px;line-height:1;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';text-decoration-color:#000000;fill:#000000;stroke-width:0.127668;-inkscape-stroke:none;stop-color:#000000"
+       x="10.758452"
+       y="166.86801"
+       id="text368-3"
+       inkscape:export-filename="text_running_late.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.127668"
+         x="10.758452"
+         y="166.86801"
+         id="tspan380-5">Timefred was running late.</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.127668"
+         x="10.758452"
+         y="180.72321"
+         id="tspan503">[picture of alarm clock with flashing 12:00]</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.127668"
+         x="10.758452"
+         y="194.57841"
+         id="tspan579" /><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.127668"
+         x="10.758452"
+         y="208.43361"
+         id="tspan581">He would have to make every second count.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:52.3168px;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:4.35972"
+       x="-7.0095601"
+       y="289.05911"
+       id="text242-4"
+       inkscape:export-filename="title_thymefred.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan240-3"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:52.3168px;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:4.35972"
+         x="-7.0095601"
+         y="289.05911">Thymefred</tspan></text>
   </g>
 </svg>

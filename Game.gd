@@ -3,6 +3,7 @@ extends Node2D
 var _current_level
 var _next_level = "Title"
 var _popup_shown = false
+var thymefred = false
 
 var Toast = preload("res://Toast.tscn")
 
