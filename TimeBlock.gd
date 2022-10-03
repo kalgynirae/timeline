@@ -5,7 +5,8 @@ export var duration: int
 export var dark: bool
 
 const COLORS = {
-	"foo": Color("d04040"),
+	"start": Color("00c000"),
+	"quit": Color("c00000"),
 	"spawn_line": Color("404040"),
 	"lock": Color("404040"),
 	"claw_up": Color("3080f0"),
@@ -33,7 +34,8 @@ var _timeline
 
 func _enter_tree():
 	_timeline = get_node("%Timeline")
-	_timeline.register_block(self, true)
+	if not _timeline.register_block(self, true):
+		$AnimationPlayer.play("disabled")
 
 func _input(event):
 	if event is InputEventMouseButton:

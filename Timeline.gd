@@ -163,16 +163,17 @@ func snap_block(block, initial_placement: bool) -> bool:
 	block.start_step = round(block.position.x as float / step_width)
 	block.stop_step = block.start_step + block.duration / step_duration
 
-	# TODO: check bounds, unset *_step if out of bounds
-	if not initial_placement:
-		if block.row < locked_rows or block.row >= rows:
-			return false
-		if block.start_step < 0 or block.stop_step > steps:
-			return false
+	var in_locked_row = block.row < locked_rows
+	var in_timeline = not (
+		block.row >= rows
+		or block.start_step < 0
+		or block.stop_step > steps
+	)
 
-	resize_block(block)
-	maybe_lock_block(block)
-	return true
+	if (in_timeline and not in_locked_row) or initial_placement:
+		resize_block(block)
+		maybe_lock_block(block)
+	return in_timeline and (not in_locked_row or initial_placement)
 
 func resize_block(block):
 	block.position.x = block.start_step * step_width
