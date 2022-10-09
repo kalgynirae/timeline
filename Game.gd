@@ -17,7 +17,10 @@ func _input(event):
 			var name = yield(coro, "completed")
 			load_level(name)
 	elif Input.is_action_pressed("restart_level"):
-		load_level(_current_level)
+		if Input.is_key_pressed(KEY_SHIFT):
+			load_level(_current_level)
+		else:
+			restart_level()
 	elif Input.is_action_pressed("quit"):
 		get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
 
@@ -37,7 +40,7 @@ func _process(_delta):
 func load_level_soon(name):
 	_next_level = name
 
-func load_level(name):
+func load_level(name, start: bool = true):
 	print("load_level(", name, ")")
 	var new_packed = load("res://levels/" + name + ".tscn")
 	if new_packed == null:
@@ -48,7 +51,29 @@ func load_level(name):
 	for node in $CurrentLevel.get_children():
 		$CurrentLevel.remove_child(node)
 		node.queue_free()
+	_current_level = name
 	var level = new_packed.instance()
 	$CurrentLevel.add_child(level)
+	if start:
+		level.start(Time.get_ticks_msec() + 500)
+		if not $MusicPlayer.playing:
+			$MusicPlayer.play()
+
+func restart_level():
+	var timeblock_positions = {}
+	collect_positions(timeblock_positions, $CurrentLevel.get_child(0))
+	load_level(_current_level, false)
+	var level = $CurrentLevel.get_child(0)
+	var timeline = level.find_node("Timeline")
+	for name in timeblock_positions:
+		var block = level.find_node(name)
+		timeline.unregister_block(block)
+		block.position = timeblock_positions[name]
+		timeline.register_block(block, true)
 	level.start(Time.get_ticks_msec() + 500)
-	_current_level = name
+
+func collect_positions(positions, node):
+	if node.filename == "res://TimeBlock.tscn":
+		positions[node.name] = node.position
+	for child in node.get_children():
+		collect_positions(positions, child)

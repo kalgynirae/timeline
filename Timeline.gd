@@ -166,16 +166,16 @@ func _on_line_vanish(lineid, dark):
 			block.deactivate(lineid)
 	_lineids.erase(lineid)
 
-func register_block(block, initial_placement: bool) -> bool:
+func register_block(block, initial_placement: bool):
 	if snap_block(block, initial_placement):
 		_blocks.append(block)
-		return true
 	else:
-		return false
+		block.disable()
 
 func unregister_block(block):
 	_blocks.erase(block)
 	block.deactivate_all()
+	block.reset()
 
 func snap_block(block, initial_placement: bool) -> bool:
 	block.row = round(-block.position.y as float / row_height) - 1

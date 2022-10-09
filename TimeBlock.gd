@@ -36,8 +36,7 @@ var _timeline
 
 func _enter_tree():
 	_timeline = get_node("%Timeline")
-	if not _timeline.register_block(self, true):
-		$AnimationPlayer.play("disabled")
+	_timeline.register_block(self, true)
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -179,13 +178,17 @@ func grab(mouse_position):
 
 func ungrab():
 	_grabbed = false
-	if _timeline.register_block(self, false):
-		$AnimationPlayer.play("RESET")
-	else:
-		$AnimationPlayer.play("disabled")
+	reset()
+	_timeline.register_block(self, false)
 
 func lock():
 	_locked = true
 
 func unlock():
 	_locked = false
+
+func disable():
+	$AnimationPlayer.play("disabled")
+
+func reset():
+	$AnimationPlayer.play("RESET")

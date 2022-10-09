@@ -27,7 +27,7 @@
      showguides="true"
      inkscape:zoom="1.2938724"
      inkscape:cx="384.50469"
-     inkscape:cy="1110.6196"
+     inkscape:cy="863.29997"
      inkscape:window-width="2560"
      inkscape:window-height="1387"
      inkscape:window-x="2552"
@@ -235,31 +235,36 @@
     <text
        xml:space="preserve"
        style="font-weight:bold;font-size:13.8552px;line-height:1;font-family:'Sitka Banner';-inkscape-font-specification:'Sitka Banner, Bold';text-decoration-color:#000000;fill:#000000;stroke-width:0.127668;-inkscape-stroke:none;stop-color:#000000"
-       x="10.758452"
-       y="166.86801"
+       x="4.6237669"
+       y="159.3019"
        id="text368-3"
        inkscape:export-filename="text_running_late.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"><tspan
          sodipodi:role="line"
          style="stroke-width:0.127668"
-         x="10.758452"
-         y="166.86801"
+         x="4.6237669"
+         y="159.3019"
          id="tspan380-5">Timefred was running late.</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.127668"
-         x="10.758452"
-         y="180.72321"
-         id="tspan503">[picture of alarm clock with flashing 12:00]</tspan><tspan
+         x="4.6237669"
+         y="173.15709"
+         id="tspan503" /><tspan
          sodipodi:role="line"
          style="stroke-width:0.127668"
-         x="10.758452"
-         y="194.57841"
+         x="4.6237669"
+         y="187.0123"
+         id="tspan522" /><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.127668"
+         x="4.6237669"
+         y="200.86749"
          id="tspan579" /><tspan
          sodipodi:role="line"
          style="stroke-width:0.127668"
-         x="10.758452"
-         y="208.43361"
+         x="4.6237669"
+         y="214.7227"
          id="tspan581">He would have to make every second count.</tspan></text>
     <text
        xml:space="preserve"
@@ -279,11 +284,12 @@
        id="g332"
        inkscape:export-filename="clock.png"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
+       inkscape:export-ydpi="96"
+       transform="translate(-9.4065175,1.2269371)">
       <path
          id="rect911"
          style="fill:#000000;stroke-width:0.127668;-inkscape-stroke:none;stop-color:#000000"
-         d="M 49.691024 220.64441 L 49.691024 247.43244 L 110.83354 247.43244 L 110.83354 220.64441 L 49.691024 220.64441 z M 53.064978 224.42713 L 107.45907 224.42713 L 107.45907 243.64921 L 53.064978 243.64921 L 53.064978 224.42713 z " />
+         d="m 49.691024,220.64441 v 26.78803 h 61.142516 v -26.78803 z m 3.373954,3.78272 h 54.394092 v 19.22208 H 53.064978 Z" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.9051px;line-height:normal;font-family:'16 Segments';-inkscape-font-specification:'16 Segments, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-decoration-color:#000000;fill:#000000;stroke-width:0.164986;-inkscape-stroke:none;stop-color:#000000"
@@ -298,7 +304,7 @@
     </g>
     <g
        id="g332-4"
-       transform="translate(74.536278,0.10206422)"
+       transform="translate(60.426502,1.1245118)"
        inkscape:export-filename="clock_blank.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96">
