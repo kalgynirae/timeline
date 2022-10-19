@@ -17,4 +17,4 @@ func _ready():
 
 func start(start_time):
 	pass
-#	$Timeline.spawn_line(Color("00ff00"))
+	$Timeline.spawn_line(Color("00ff00"))

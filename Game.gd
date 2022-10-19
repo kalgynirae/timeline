@@ -40,6 +40,9 @@ func _process(_delta):
 func load_level_soon(name):
 	_next_level = name
 
+func load_next_level_soon():
+	_next_level = $CurrentLevel.get_child(0).next_level
+
 func load_level(name, start: bool = true):
 	print("load_level(", name, ")")
 	var new_packed = load("res://levels/" + name + ".tscn")

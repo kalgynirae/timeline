@@ -19,7 +19,6 @@ var _blocks = []
 var _lineids = {}
 var _next_lineid = 1
 var _show_restart_after
-var _showed_restart = false
 
 func _ready():
 	generate()
@@ -48,12 +47,15 @@ func _input(event):
 		spawn_line(Color("00ff00"))
 
 func _process(_delta):
-	if not _lineids.empty() and _show_restart_after != null:
+	if not is_stuck():
+		$Restart.visible = false
 		_show_restart_after = null
-	if _lineids.empty() and _show_restart_after == null:
-		_show_restart_after = Time.get_ticks_msec() + 500
-	if _show_restart_after != null and Time.get_ticks_msec() >= _show_restart_after:
-		show_restart()
+	else:
+		if _show_restart_after == null:
+			_show_restart_after = Time.get_ticks_msec() + 500
+		else:
+			if Time.get_ticks_msec() >= _show_restart_after:
+				show_restart()
 
 func clear():
 	for node in $verticals.get_children():
@@ -66,7 +68,6 @@ func clear():
 		node.queue_free()
 	for node in $locks.get_children():
 		node.queue_free()
-	$Restart.visible = false
 
 func generate():
 	clear()
@@ -210,10 +211,13 @@ func lock():
 	generate()
 
 func show_restart():
-	if _showed_restart:
+	if $Restart.visible:
 		return
-	_showed_restart = true
 	$Restart.modulate = Color("00ffffff")
 	$Restart.visible = true
 	var tween = create_tween()
 	tween.tween_property($Restart, "modulate", Color("ffffffff"), 1.0).set_trans(Tween.TRANS_QUAD)
+
+func is_stuck():
+	var timefred = get_node('%Timefred')
+	return _lineids.empty() or (timefred != null and timefred.position.y > 720)

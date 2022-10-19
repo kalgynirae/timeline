@@ -8,6 +8,7 @@ export var dingly: bool
 const COLORS = {
 	"_default": Color("808080"),
 	"start": Color("00c000"),
+	"proceed": Color("00c000"),
 	"quit": Color("c00000"),
 	"spawn_line": Color("606060"),
 	"lock": Color("606060"),
@@ -124,7 +125,9 @@ func activate(lineid):
 			"quit":
 				get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
 			"start":
-				get_node("/root/Game").load_level_soon("Tutorial")
+				get_node("/root/Game").load_level_soon("PreTutorial")
+			"proceed":
+				get_node("/root/Game").load_next_level_soon()
 			"show_devs":
 				get_node("%DevsText").show()
 			"lock":
