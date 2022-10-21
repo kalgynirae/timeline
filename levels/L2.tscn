@@ -104,7 +104,7 @@ scale = Vector2( 200, 10 )
 
 [node name="Timefred" parent="." instance=ExtResource( 8 )]
 unique_name_in_owner = true
-position = Vector2( 86, 256 )
+position = Vector2( 80, 270 )
 
 [node name="Goal" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1280, 149 )

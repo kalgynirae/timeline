@@ -185,5 +185,6 @@ default_color = Color( 1, 1, 1, 1 )
 [node name="locks" type="Node2D" parent="."]
 
 [node name="Restart" type="Sprite" parent="."]
+visible = false
 position = Vector2( 640, -290 )
 texture = ExtResource( 1 )

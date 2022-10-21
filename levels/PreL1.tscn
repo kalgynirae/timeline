@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://levels/PreL1.gd" type="Script" id=1]
+[ext_resource path="res://img/text_running_late.png" type="Texture" id=2]
+[ext_resource path="res://Timeline.tscn" type="PackedScene" id=3]
+[ext_resource path="res://TimeBlock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://img/clock.png" type="Texture" id=5]
+[ext_resource path="res://img/clock_blank.png" type="Texture" id=6]
+[ext_resource path="res://img/text_running_late_thyme.png" type="Texture" id=7]
+
+[node name="PreL1" type="Node2D"]
+script = ExtResource( 1 )
+next_level = "L1"
+
+[node name="Timeline" parent="." instance=ExtResource( 3 )]
+unique_name_in_owner = true
+position = Vector2( 140, 640 )
+rows = 2
+locked_rows = 2
+
+[node name="TimeBlock" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 950, -50 )
+type = "proceed"
+duration = 500
+dark = true
+
+[node name="TimeBlock2" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 200, -50 )
+type = "show_text"
+duration = 6000
+dark = true
+dingly = true
+
+[node name="TimeBlock3" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 50, -100 )
+type = "blink"
+duration = 500
+dark = true
+
+[node name="TimeBlock4" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 150, -100 )
+type = "blink"
+duration = 500
+dark = true
+
+[node name="TimeBlock5" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 250, -100 )
+type = "blink"
+duration = 500
+dark = true
+
+[node name="TimeBlock6" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 350, -100 )
+type = "blink"
+duration = 500
+dark = true
+
+[node name="TimeBlock7" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 450, -100 )
+type = "blink"
+duration = 500
+dark = true
+
+[node name="TimeBlock8" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 550, -100 )
+type = "blink"
+duration = 500
+dark = true
+
+[node name="TimeBlock9" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 650, -100 )
+type = "blink"
+duration = 500
+dark = true
+
+[node name="TimeBlock10" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 750, -100 )
+type = "blink"
+duration = 500
+dark = true
+
+[node name="TimeBlock11" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 850, -100 )
+type = "blink"
+duration = 500
+dark = true
+
+[node name="Text" type="Sprite" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2( 620, 280 )
+texture = ExtResource( 2 )
+
+[node name="TextThyme" type="Sprite" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2( 620, 280 )
+texture = ExtResource( 7 )
+
+[node name="Clock" type="Sprite" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2( 635.5, 280.5 )
+texture = ExtResource( 5 )
+
+[node name="ClockBlank" type="Sprite" parent="."]
+position = Vector2( 635.5, 280.5 )
+texture = ExtResource( 6 )

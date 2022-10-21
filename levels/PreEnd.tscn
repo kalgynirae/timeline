@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://levels/PreEnd.gd" type="Script" id=1]
+[ext_resource path="res://img/text_on_time.png" type="Texture" id=2]
+[ext_resource path="res://Timeline.tscn" type="PackedScene" id=3]
+[ext_resource path="res://TimeBlock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://img/text_on_time_thyme.png" type="Texture" id=5]
+[ext_resource path="res://img/text_on_time_2.png" type="Texture" id=6]
+[ext_resource path="res://img/text_on_time_3.png" type="Texture" id=7]
+
+[node name="PreEnd" type="Node2D"]
+script = ExtResource( 1 )
+next_level = "End"
+
+[node name="Timeline" parent="." instance=ExtResource( 3 )]
+unique_name_in_owner = true
+position = Vector2( 140, 640 )
+rows = 3
+locked_rows = 3
+
+[node name="TimeBlock" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 950, -50 )
+type = "proceed"
+duration = 500
+dark = true
+
+[node name="TimeBlock2" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 50, -150 )
+type = "show_text"
+duration = 7500
+dark = true
+dingly = true
+
+[node name="TimeBlock3" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 350, -100 )
+type = "show_text_2"
+duration = 4500
+dark = true
+
+[node name="TimeBlock4" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 600, -50 )
+type = "show_text_3"
+duration = 2000
+dark = true
+
+[node name="Text" type="Sprite" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2( 460, 240 )
+texture = ExtResource( 2 )
+
+[node name="TextThyme" type="Sprite" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2( 479, 245 )
+texture = ExtResource( 5 )
+
+[node name="Text2" type="Sprite" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2( 440, 330 )
+texture = ExtResource( 6 )
+
+[node name="Text3" type="Sprite" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2( 1004, 330 )
+texture = ExtResource( 7 )

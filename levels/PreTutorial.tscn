@@ -1,17 +1,26 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/PreTutorial.gd" type="Script" id=1]
 [ext_resource path="res://img/text_schedule.png" type="Texture" id=2]
 [ext_resource path="res://Timeline.tscn" type="PackedScene" id=3]
 [ext_resource path="res://TimeBlock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://img/text_schedule_thyme.png" type="Texture" id=5]
 
 [node name="PreTutorial" type="Node2D"]
 script = ExtResource( 1 )
 next_level = "Tutorial"
 
-[node name="TextSchedule" type="Sprite" parent="."]
+[node name="Text" type="Sprite" parent="."]
+unique_name_in_owner = true
+visible = false
 position = Vector2( 640, 340 )
 texture = ExtResource( 2 )
+
+[node name="TextThyme" type="Sprite" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2( 640, 340 )
+texture = ExtResource( 5 )
 
 [node name="Timeline" parent="." instance=ExtResource( 3 )]
 unique_name_in_owner = true
@@ -23,3 +32,10 @@ position = Vector2( 950, -50 )
 type = "proceed"
 duration = 500
 dark = true
+
+[node name="TimeBlock2" parent="Timeline" instance=ExtResource( 4 )]
+position = Vector2( 150, -50 )
+type = "show_text"
+duration = 6500
+dark = true
+dingly = true

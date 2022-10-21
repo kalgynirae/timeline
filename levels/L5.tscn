@@ -137,7 +137,7 @@ position = Vector2( 71, 337 )
 
 [node name="Goal" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1281, 125 )
-what_next = "End"
+what_next = "PreEnd"
 
 [node name="Claw" parent="." instance=ExtResource( 7 )]
 unique_name_in_owner = true

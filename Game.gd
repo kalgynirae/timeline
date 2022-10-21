@@ -42,6 +42,8 @@ func load_level_soon(name):
 
 func load_next_level_soon():
 	_next_level = $CurrentLevel.get_child(0).next_level
+	if _next_level == "End" and thymefred:
+		_next_level = "Title"
 
 func load_level(name, start: bool = true):
 	print("load_level(", name, ")")

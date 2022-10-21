@@ -41,8 +41,6 @@ func _input(event):
 				BUTTON_WHEEL_DOWN:
 					step_width -= 5
 		generate()
-	elif Input.is_action_pressed("pause"):
-		print("not implemented yet!")
 	elif Input.is_action_pressed("spawn_line"):
 		spawn_line(Color("00ff00"))
 

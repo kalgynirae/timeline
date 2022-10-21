@@ -20,7 +20,9 @@ const COLORS = {
 	"claw_close": Color("7080f0"),
 	"tf_left": Color("ff4040"),
 	"tf_right": Color("ff4040"),
-	"tf_jump": Color("ff4040")
+	"tf_jump": Color("ff4040"),
+	"blink": Color("c0c000"),
+	"show_text": Color("00c0c0")
 }
 
 var active = false
@@ -144,6 +146,30 @@ func activate(lineid):
 				get_node("%Timefred").StartMoveRight()
 			"tf_jump":
 				get_node("%Timefred").Jump()
+			"blink":
+				get_node("%Clock").visible = true
+			"show_text":
+				var text
+				if get_node("/root/Game").thymefred:
+					text = get_node("%TextThyme")
+				else:
+					text = get_node("%Text")
+				text.modulate = Color("00ffffff")
+				text.visible = true
+				var tween = create_tween()
+				tween.tween_property(text, "modulate", Color("ffffffff"), 1.0).set_trans(Tween.TRANS_QUAD)
+			"show_text_2":
+				var text = get_node("%Text2")
+				text.modulate = Color("00ffffff")
+				text.visible = true
+				var tween = create_tween()
+				tween.tween_property(text, "modulate", Color("ffffffff"), 1.0).set_trans(Tween.TRANS_QUAD)
+			"show_text_3":
+				var text = get_node("%Text3")
+				text.modulate = Color("00ffffff")
+				text.visible = true
+				var tween = create_tween()
+				tween.tween_property(text, "modulate", Color("ffffffff"), 1.0).set_trans(Tween.TRANS_QUAD)
 	_activated_by[lineid] = true
 
 func deactivate(lineid):
@@ -160,6 +186,24 @@ func deactivate(lineid):
 				get_node("%Timefred").StopMoveLeft()
 			"tf_right":
 				get_node("%Timefred").StopMoveRight()
+			"blink":
+				get_node("%Clock").visible = false
+			"show_text":
+				var text
+				if get_node("/root/Game").thymefred:
+					text = get_node("%TextThyme")
+				else:
+					text = get_node("%Text")
+				var tween = create_tween()
+				tween.tween_property(text, "modulate", Color("00ffffff"), 0.7).set_trans(Tween.TRANS_QUAD)
+			"show_text_2":
+				var text = get_node("%Text2")
+				var tween = create_tween()
+				tween.tween_property(text, "modulate", Color("00ffffff"), 0.7).set_trans(Tween.TRANS_QUAD)
+			"show_text_3":
+				var text = get_node("%Text3")
+				var tween = create_tween()
+				tween.tween_property(text, "modulate", Color("00ffffff"), 2.0).set_trans(Tween.TRANS_QUAD)
 
 		var sound = $ActiveSoundDingly if dingly else $ActiveSound
 		if sound.playing:
